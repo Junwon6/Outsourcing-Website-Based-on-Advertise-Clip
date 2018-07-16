@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge; chrome=1"/>
+        <title>cre-ground</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" media="screen" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="css/register.css" />
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+        <script src="index.js"></script>
+    </head>
+    <body>
+        <nav id="navigation">
+        
+            <ul>
+                <li>
+                    <a href="index.html" id="logo_img">
+                        <img src="img/index/creground_2.PNG" id="logo" alt="logo"/>
+                    </a>        
+                </li>
+                <li class="navigation_menu">
+                    <a href="register.html">register</a>
+                </li>
+                <!-- 공모문의 -->
+                <li class="navigation_menu">
+                    <a href="create.html">create</a>
+                </li>
+                <!-- 공모들의 리스트를 보여주는 곳, 참여 -->
+                <li class="navigation_menu">
+                    <a href="playground.html">playground</a>
+                </li>
+                <!-- 게시판, 본인영상, 사람구함 정보 모으는곳 -->
+                <li class="navigation_menu">
+                    <a href="qna.html">Q&A</a>
+                </li>
+                <li>
+                    <a href="#" onclick="">login</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="section_white"></div>
+
+        들어갔으면 하는 요소? : <br>
+        작성자, <br>
+        상금입력,<br>
+        원하는 내용,<br>
+        원하는 카테고리(애니메이션, 사람연기, 그림, 사진 등등),<br>
+        문의연락수단(전화, 주소 등등),<br>
+        마감 날짜, <br>
+        <!-- https://codepen.io/jaycbrf/pen/iBszr -->
+        <div class="container">
+
+            <form class="well form-horizontal" action=" " method="post"  id="contact_form">
+        <fieldset>
+        
+        <!-- Form Name -->
+        <legend>문의하기</legend>
+        
+        <!-- Text input-->
+        
+        <div class="form-group">
+          <label class="col-md-4 control-label">First Name</label>  
+          <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+          <input  name="first_name" placeholder="First Name" class="form-control"  type="text">
+            </div>
+          </div>
+        </div>
+        
+        <!-- Text input-->
+        
+        <div class="form-group">
+          <label class="col-md-4 control-label" >Last Name</label> 
+            <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+          <input name="last_name" placeholder="Last Name" class="form-control"  type="text">
+            </div>
+          </div>
+        </div>
+        
+        <!-- Text input-->
+               <div class="form-group">
+          <label class="col-md-4 control-label">E-Mail</label>  
+            <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+          <input name="email" placeholder="E-Mail Address" class="form-control"  type="text">
+            </div>
+          </div>
+        </div>
+        
+        
+        <!-- Text input-->
+               
+        <div class="form-group">
+          <label class="col-md-4 control-label">Phone #</label>  
+            <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+          <input name="phone" placeholder="(845)555-1212" class="form-control" type="text">
+            </div>
+          </div>
+        </div>
+        
+        <!-- Text input-->
+              
+        <div class="form-group">
+          <label class="col-md-4 control-label">Address</label>  
+            <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+          <input name="address" placeholder="Address" class="form-control" type="text">
+            </div>
+          </div>
+        </div>
+        
+        <!-- Text input-->
+         
+        <div class="form-group">
+          <label class="col-md-4 control-label">City</label>  
+            <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+          <input name="city" placeholder="city" class="form-control"  type="text">
+            </div>
+          </div>
+        </div>
+        
+        <!-- Select Basic -->
+           
+        <div class="form-group"> 
+          <label class="col-md-4 control-label">State</label>
+            <div class="col-md-4 selectContainer">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+            <select name="state" class="form-control selectpicker" >
+              <option value=" " >Please select your state</option>
+              <option>Alabama</option>
+              <option>Alaska</option>
+              <option >Arizona</option>
+              <option >Arkansas</option>
+              <option >California</option>
+              <option >Colorado</option>
+              <option >Connecticut</option>
+              <option >Delaware</option>
+              <option >District of Columbia</option>
+              <option> Florida</option>
+              <option >Georgia</option>
+              <option >Hawaii</option>
+              <option >daho</option>
+              <option >Illinois</option>
+              <option >Indiana</option>
+              <option >Iowa</option>
+              <option> Kansas</option>
+              <option >Kentucky</option>
+              <option >Louisiana</option>
+              <option>Maine</option>
+              <option >Maryland</option>
+              <option> Mass</option>
+              <option >Michigan</option>
+              <option >Minnesota</option>
+              <option>Mississippi</option>
+              <option>Missouri</option>
+              <option>Montana</option>
+              <option>Nebraska</option>
+              <option>Nevada</option>
+              <option>New Hampshire</option>
+              <option>New Jersey</option>
+              <option>New Mexico</option>
+              <option>New York</option>
+              <option>North Carolina</option>
+              <option>North Dakota</option>
+              <option>Ohio</option>
+              <option>Oklahoma</option>
+              <option>Oregon</option>
+              <option>Pennsylvania</option>
+              <option>Rhode Island</option>
+              <option>South Carolina</option>
+              <option>South Dakota</option>
+              <option>Tennessee</option>
+              <option>Texas</option>
+              <option> Uttah</option>
+              <option>Vermont</option>
+              <option>Virginia</option>
+              <option >Washington</option>
+              <option >West Virginia</option>
+              <option>Wisconsin</option>
+              <option >Wyoming</option>
+            </select>
+          </div>
+        </div>
+        </div>
+        
+        <!-- Text input-->
+        
+        <div class="form-group">
+          <label class="col-md-4 control-label">Zip Code</label>  
+            <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+          <input name="zip" placeholder="Zip Code" class="form-control"  type="text">
+            </div>
+        </div>
+        </div>
+        
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label">Website or domain name</label>  
+           <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
+          <input name="website" placeholder="Website or domain name" class="form-control" type="text">
+            </div>
+          </div>
+        </div>
+        
+        <!-- radio checks -->
+         <div class="form-group">
+                                <label class="col-md-4 control-label">Do you have hosting?</label>
+                                <div class="col-md-4">
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="hosting" value="yes" /> Yes
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="hosting" value="no" /> No
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+        
+        <!-- Text area -->
+          
+        <div class="form-group">
+          <label class="col-md-4 control-label">Project Description</label>
+            <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                    <textarea class="form-control" name="comment" placeholder="Project Description"></textarea>
+          </div>
+          </div>
+        </div>
+        
+        <!-- Success message -->
+        <div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Thanks for contacting us, we will get back to you shortly.</div>
+        
+        <!-- Button -->
+        <div class="form-group">
+          <label class="col-md-4 control-label"></label>
+          <div class="col-md-4">
+            <button type="submit" class="btn btn-warning" >Send <span class="glyphicon glyphicon-send"></span></button>
+          </div>
+        </div>
+        
+        </fieldset>
+        </form>
+        </div>
+            </div><!-- /.container -->
+
+
+
+    </body>
+</html>
