@@ -168,6 +168,38 @@ video {
     background: none;
 }
 
+
+.button--bubble:hover + .button--bubble__effect-container .circle {
+    background: darken(#90feb5, 15%);
+}
+
+.button--bubble:hover + .button--bubble__effect-container .button {
+    background: darken(#90feb5, 15%);
+}
+
+.button--bubble:active + .button--bubble__effect-container {
+    transform: scale(0.95);
+}
+
+.button--bubble__container {
+    position: relative;
+    display: inline-block;
+}
+
+.button--bubble__container .effect-button {
+    position: absolute;
+    width: 50%;
+    height: 25%;
+    top: 50%;
+    left: 25%;
+    z-index: 1;
+    transform: translateY(-50%);
+    background: #FF5675;
+    transition: background 0.1s ease-out;
+}
+
+
+
 .button--bubble:hover + .button--bubble__effect-container .circle {
     background: darken(#90feb5, 15%);
 }
@@ -268,9 +300,18 @@ video {
 }
 
 .table_list {
-    width : 750px;
+
+    width : 500px;
+    height: 50px;
+
     border-collapse: collapse;
     border : solid 1px grey;
+    margin: 10px auto;
+    border-radius: 0.2em; 
+    box-shadow: 1px 1px 2px #CEC6C6;
+    line-height: 50px; /* 글씨를 중앙으로 배치할 수 있었음. */
+    color: #495161;
+    font-size: 13px;
 }
 
 .table_list tr:nth-child(even) {
@@ -283,6 +324,32 @@ video {
 
 .table_list td {
     padding: 5px;
+}
+
+.project, .company_name, .deadline, .reward{
+    text-align: center;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+img{
+    margin-right: 5px;
+    width: 12px;
+    height: 12px;
+}
+.project{
+    width: 200px;
+    font-weight: bold;
+    text-align: left;
+}
+.company_name{
+    width: 80px;
+}
+.deadline{
+    width: 60px;
+}
+.reward{
+    width: 60px;
 }
 
 /* #3 Section */
