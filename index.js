@@ -55,7 +55,7 @@ $('.button--bubble').each(function() {
 /*
 * login button start
 */
-$('.form').find('.input_login, textarea').on('keyup blur focus', function (e) {
+$('#Login_form').find('.input_login, textarea').on('keyup blur focus', function (e) {
   
     var $this = $(this),
         label = $this.prev('.label_login');
@@ -104,3 +104,13 @@ $('.form').find('.input_login, textarea').on('keyup blur focus', function (e) {
 //your code here
 
 });
+
+function open_login_frame() {
+  $('#Block_Board').css('display', 'block');
+  $('#Login_form').css('display', 'block');
+}
+
+function close_login_frame() {
+  $('#Block_Board').css('display', 'none');
+  $('#Login_form').css('display', 'none');
+}
