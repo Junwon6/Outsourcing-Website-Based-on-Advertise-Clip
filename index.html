@@ -45,8 +45,7 @@
                     <a href="QnA.html">Q&A</a>
                 </li>
                 <li>
-                    <a onclick="open_login_frame">Login</a>
-
+                    <a onclick="open_login_frame()">Login</a>
                 </li>
             </ul>
         </nav>
@@ -55,14 +54,17 @@
     <!-- LOGIN  -->
     <!-- 해당 부분은 실제로 안보임 -->
     <!-- 메뉴의 로그인을 클릭했을 때 보이게 설정 -->
-    <div class="form" style="display: none">
-
+    <div id="Block_Board"></div>    
+    <div id="Login_form">
         <ul class="tab-group">
             <li class="tab active">
                 <a href="#signup" class="login_a">Sign Up</a>
             </li>
             <li class="tab">
                 <a href="#login" class="login_a">Log In</a>
+            </li>
+            <li id="close_button">
+                <a href="#login" class="login_a" onclick="close_login_frame()">Close Button</a>                
             </li>
         </ul>
 
