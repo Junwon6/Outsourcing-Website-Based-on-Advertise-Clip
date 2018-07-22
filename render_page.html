@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/login.css" />
+    <!-- REACT LIBRARY -->
+    <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+    <!-- REACT DOM LIBRARY -->
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+    <!-- BABEL LIBRARY -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">React has not rendered yet</div>
+    
+    <script type="text/babel">
+        var menuItems = [
+            {id: 1, address: "register.html", name: "Register"},
+            {id: 2, address: "create.html", name: "Create"},
+            {id: 3, address: "playground.html", name: "Playground"},
+            {id: 4, address: "QnA.html", name: "QnA"}
+        ];
+
+        function Logo() {
+            return(
+                <li>
+                    <a href="index.html" id="logo">
+                        <img src="img/index/creground_2.PNG" alt="logo_img"/>
+                    </a>        
+                </li>
+            );
+        }
+
+        function Login() {
+            return(
+                <li>
+                    <a onclick="open_login_frame()">Login</a>
+                </li>
+            );
+        }
+
+        function Menu(props) {
+            var listItems = props.menuItems.map(function(item) {
+                return <li key={item.id}><a href={item.address}>{item.name}</a></li>;
+            });
+            return(
+                <ul>
+                    <Logo/>
+                    {listItems}
+                    <Login/>
+                </ul>
+            );
+        }
+
+        function Header() {
+            return(
+                <header>
+                    <nav id="menu">
+                        <Menu menuItems={menuItems}/>
+                    </nav>
+                </header>
+            );
+        }
+        ReactDOM.render(
+            <Header/>,
+            document.getElementById("app")
+        );
+    </script>
+</body>
+</html>
