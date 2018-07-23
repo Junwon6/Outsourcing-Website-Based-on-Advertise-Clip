@@ -65,8 +65,67 @@
                 </header>
             );
         }
+        
+        function Block_Board() {
+            return(
+                <div id="Block_Board"></div>
+            );
+        }
+        
+        function Tab_Group() {
+            return(
+                <ul className="tab-group">
+                    <Sign_Up/>
+                    <Login/>
+                    <Close_Button/>
+                </ul>
+            );
+        }
+        
+        function Sign_Up() {
+            return(
+                <li>
+                    <a href="#signup" className="login_a">Sign Up</a>
+                </li>
+            );
+        }
+
+        function Login() {
+            return(
+                <li>
+                    <a href="#login" className="login_a">Log In</a>
+                </li>
+            );
+        }
+
+        function Close_Button() {
+            return(
+                <li>
+                    <a href="#login" className="login_a">Close Button</a>                
+                </li>
+            );
+        }
+
+        function Tab_Content() {
+            return(
+                <div></div>
+            );
+        }
+
+        function Login_Form() {
+            return(
+                <div id="Login_form">
+                    <Tab_Group/>
+                    <Tab_Content/>
+                </div>
+            );
+        }
+
         ReactDOM.render(
-            <Header/>,
+            <div>
+                <Header/>
+                <Login_Form/>
+            </div>,
             document.getElementById("app")
         );
     </script>
