@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="login.css">
+    <!-- REACT LIBRARY -->
+    <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+    <!-- REACT DOM LIBRARY -->
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+    <!-- BABEL LIBRARY -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <title>Login by react</title>
+</head>
+<body>
+    <div id="app">React is not accept!</div>
+    <script type="text/babel">
+        function Login() {
+            return(
+                <div id="login">
+                    <HeadTitle/>
+                    <Login_Form/>
+                </div>
+            );
+        }
+        
+        function HeadTitle() {
+            return(
+                <div id="headtitle">LOGIN</div>
+            );
+        }
+
+        function Login_Form() {
+            return(
+                <div id="form_wrap">
+                    <form>
+                        <div id="input_wrap">
+                            <input type="text" placeholder="e-mail" title="e-mail"/>
+                            <br/>
+                            <input type="text" placeholder="password" title="password"/>
+                        </div>
+                        <div id="btn_wrap">
+                            <button id="btn" type="submit">Sign In</button>
+                        </div>
+                    </form>
+                </div>
+            );
+        }
+
+        ReactDOM.render(
+            <Login/>,
+            document.getElementById("app")
+        );
+    </script>
+</body>
+</html>
