@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/main_session.css">
+    <!-- REACT LIBRARY -->
+    <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+    <!-- REACT DOM LIBRARY -->
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+    <!-- BABEL LIBRARY -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <title>main_session by react</title>
+</head>
+<body>
+    <div id="app">NO!</div>
+    <script type="text/babel">
+
+        function MainSession() {
+            return(
+                <div className="frame">
+                    <SpotlightContents/>
+                    <BestContents/>
+                </div>
+            );
+        }
+
+        function SpotlightContents() {
+            return(
+                <div className="wrapper">
+                    <Spotlight size="small"/>
+                    <Spotlight size="small"/>
+                    <Spotlight size="large"/>
+                </div>
+            );
+        }
+
+        function Spotlight(props) {
+            return(
+                <div className={props.size}>
+                </div>
+            );
+        }
+
+        function BestContents() {
+            return(
+                <div className="wrapper">
+                    <h1>This is Best!</h1>
+                    <BestContent/>
+                    <BestContent/>
+                    <BestContent/>                    
+                    <BestContent/>
+                </div>
+            );
+        }
+
+        function BestContent() {
+            return(
+                <div className="bestcontent">
+                </div>
+            );
+        }
+
+        ReactDOM.render(
+            <MainSession/>,
+            document.getElementById("app")
+        )
+    </script>
+</body>
+</html>

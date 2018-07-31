@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+}
+
+.wrapper {
+    margin-bottom: 10px;
+    text-align: center;
+    padding: 10px 20px;
+    width: 100%;
+    background-color: gray;
+}
+
+.small {
+    display: inline-block;
+    margin: 10px;
+    border-radius: 4px;
+    background-color: black;
+    height: 300px;
+    width: 200px;
+}
+
+.large {
+    display: inline-block;
+    margin: 10px;
+    border-radius: 4px;
+    background-color: black;
+    height: 300px;
+    width: 500px;
+}
+
+.bestcontent {
+    display: inline-block;
+    margin: 10px;
+    border-radius: 4px;
+    background-color: black;
+    height: 270px;
+    width: 270px;
+}
