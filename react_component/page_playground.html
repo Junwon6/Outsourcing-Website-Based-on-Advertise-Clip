@@ -1,22 +1,24 @@
-b<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="css/menu.css">
+    <link rel="stylesheet" type="text/css" href="css/main_session.css">
+    <link rel="stylesheet" type="text/css" href="css/menu.css">    
     <!-- REACT LIBRARY -->
     <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
     <!-- REACT DOM LIBRARY -->
     <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
     <!-- BABEL LIBRARY -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
-    <title>Menu by react</title>
+    <title>page_playground</title>
 </head>
 <body>
-    <div id="app">React is rendered yet!</div>
+    <div id="app">React is rendered yet!</div>    
     <script type="text/babel">
 
+        // MENU COMPONENT
         function MenuItem(props) {
             if (props.name === "Login") {
                 return(
@@ -33,7 +35,7 @@ b<!DOCTYPE html>
             else {
                 return(
                     <div className="menuitem">
-                        <a id={props.name}>{props.name}</a>
+                        <a id={props.name} href={props.page}>{props.name}</a>
                     </div>
                 );
             }
@@ -42,18 +44,20 @@ b<!DOCTYPE html>
         function Menu() {
             return(
                 <div id="menu">
-                    <MenuItem name="CRE_GROUND"/>                    
-                    <MenuItem name="Register"/>
-                    <MenuItem name="Create"/>
-                    <MenuItem name="Playground"/>
-                    <MenuItem name="QnA"/>
+                    <MenuItem name="CRE_GROUND" page="page_main.html"/>                    
+                    <MenuItem name="Register"  page="page_register.html"/>
+                    <MenuItem name="Create" page="page_create.html"/>
+                    <MenuItem name="Playground" page="page_playground.html"/>
+                    <MenuItem name="QnA" page="page_qna.html"/>
                     <MenuItem name="SIGN-UP"/>
                 </div>
             );
         }
 
         ReactDOM.render(
-            <Menu/>,
+            <div>
+                <Menu/>
+            </div>,
             document.getElementById("app")
         );
     </script>
