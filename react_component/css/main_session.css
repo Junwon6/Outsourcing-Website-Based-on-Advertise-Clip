@@ -2,12 +2,20 @@ body {
     margin: 0;
 }
 
+.frame {
+    margin-top: 60px;
+}
+
 .wrapper {
     margin-bottom: 10px;
     text-align: center;
     padding: 10px 20px;
     width: 100%;
     background-color: gray;
+}
+
+.wrapper h1 {
+    color: white;
 }
 
 .small {
@@ -35,4 +43,34 @@ body {
     background-color: black;
     height: 270px;
     width: 270px;
+}
+
+.bestcontent h3 {
+    margin: 50px 20px;
+    background-color: white;
+}
+
+.bestcontent p {
+    margin: 0 20px;
+    background-color: white;
+}
+
+.small h3 {
+    margin: 50px 20px;
+    background-color: white;
+}
+
+.small p {
+    margin: 0 20px;
+    background-color: white;
+}
+
+.large h3 {
+    margin: 50px 20px;
+    background-color: white;
+}
+
+.large p {
+    margin: 0 20px;
+    background-color: white;
 }
