@@ -59,7 +59,11 @@
             return(
                 <div className="frame">
                     <SpotlightContents/>
+                    <hr/>
                     <BestContents/>
+                    <hr/>
+                    <LowBarContents/>
+                    <hr/>
                 </div>
             );
         }
@@ -105,10 +109,55 @@
             );
         }
 
+        function LowBarContents() {
+            return(
+                <div className="wrapper">
+                    <LowBarContent/>
+                    <LowBarContent/>
+                    <LowBarContent/>
+                    <LowBarContent/>
+                </div>
+            );
+        }
+
+        function LowBarContent() {
+            return(
+                <div className="lowbarcontent">
+                    <h3>TITLE</h3>
+                </div>
+            );
+        }
+        
+        function Footer() {
+            return(
+                <div className="footer">
+                    <div className="footer_content">
+                        <h2>CRE-GROUND</h2>
+                    </div>
+                    <div className="footer_content">
+                        Features
+                    </div>
+                    <div className="footer_content">
+                        Platform
+                    </div>
+                    <div className="footer_content">
+                        Community
+                    </div>
+                    <div className="footer_content">
+                        Company
+                    </div>
+                    <div className="footer_content">
+                        Resources
+                    </div>
+                </div>
+            );
+        }
+
         ReactDOM.render(
             <div>
                 <Menu/>
                 <MainSession/>
+                <Footer/>
             </div>,
             document.getElementById("app")
         );
