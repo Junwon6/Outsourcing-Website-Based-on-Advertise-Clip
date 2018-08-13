@@ -6,8 +6,7 @@ var template = require('./lib/template.js');
 var path = require('path');
 var sanitizeHtml = require('sanitize-html');
 
-var app =
-http.createServer(function(request, response){
+var app = http.createServer((request, response) => {
   var _url = request.url;
   var queryData = url.parse(_url, true).query;
   var pathname = url.parse(_url, true).pathname;
@@ -16,7 +15,7 @@ http.createServer(function(request, response){
   */
   if(pathname === '/'){                                 // 홈화면 부분 (url)            
     if(queryData.id === undefined){                     // 홈화면이므로 query string은 없는거임 (undefined)
-      fs.readdir('./data', function(error, filelist){   // data path를 읽어서 error가 아니면 file list를 보여줌
+      fs.readdir('./data', (error, filelist) => {   // data path를 읽어서 error가 아니면 file list를 보여줌
         var title = 'CRE GROUND';
         var description = 'This is your ground';
         var list = template.list(filelist);
@@ -31,10 +30,10 @@ http.createServer(function(request, response){
     *   data 디렉토리 읽어오기 (sanitized)
     */ 
     else{
-      fs.readdir('./data', function(error, filelist){ 
+      fs.readdir('./data', (error, filelist) => {
 
        var fileteredId = path.parse(queryData.id).base;
-        fs.readFile(`data/${fileteredId}`, 'utf8', function(err, description){        // 세미나 참조
+        fs.readFile(`data/${fileteredId}`, 'utf8', (err, description) => {        // 세미나 참조
 
           var title = queryData.id;
           var sanitizedTitle=sanitizeHtml(title);
@@ -59,7 +58,7 @@ http.createServer(function(request, response){
   *     게시글 생성
   */
   else if(pathname === '/create'){
-    fs.readdir('./data', function(error, filelist){
+    fs.readdir('./data', (error, filelist) => {
       var title ='CRE GROUND';
       var list = template.list(filelist);
       var html = template.HTML(title, list,  `
@@ -83,14 +82,14 @@ http.createServer(function(request, response){
 
   else if(pathname==='/create_process'){
     var body = '';
-    request.on('data', function(data){
+    request.on('data', (data) => {
       body = body + data;
     });
-    request.on('end', function(){
+    request.on('end', () => {
       var post = qs.parse(body);
       var title = post.title;
       var description = post.description;
-      fs.writeFile(`data/${title}`, description, 'utf8', function(err){
+      fs.writeFile(`data/${title}`, description, 'utf8', (err) => {
         response.writeHead(302, {Location: `/?id=${title}`});
         response.end();
       })
@@ -101,9 +100,9 @@ http.createServer(function(request, response){
   *     수정 버튼을 눌러쓸때
   */
   else if(pathname === '/update'){
-    fs.readdir('./data', function(error, filelist){
+    fs.readdir('./data', (error, filelist) => {
         var fileteredId = path.parse(queryData.id).base;
-        fs.readFile(`data/${fileteredId}`, 'utf8', function(err, description){
+        fs.readFile(`data/${fileteredId}`, 'utf8', (err, description) => {
 
           var title = queryData.id;
           var list = template.list(filelist);
@@ -132,16 +131,16 @@ http.createServer(function(request, response){
 */
 else if(pathname === '/update_process'){
   var body = '';
-  request.on('data', function(data){
+  request.on('data', (data) => {
     body = body + data;
   });
-  request.on('end', function(){
+  request.on('end', () => {
     var post = qs.parse(body);
     var id = post.id;
     var title = post.title;
     var description = post.description;
-    fs.rename(`data/${id}`, `data/${title}`, function(error){
-      fs.writeFile(`data/${title}`, description, 'utf8', function(err){
+    fs.rename(`data/${id}`, `data/${title}`, (error) => {
+      fs.writeFile(`data/${title}`, description, 'utf8', (err) => {
         response.writeHead(302, {Location: `/?id=${title}`});
         response.end();
       })
@@ -155,13 +154,13 @@ else if(pathname === '/update_process'){
 
   else if(pathname==='/delete_process'){
     var body='';
-    request.on('data', function(data){
+    request.on('data', (data) => {
       body = body + data;
     });
-    request.on('end', function(){
+    request.on('end', () => {
       var post = qs.parse(body);
       var id = post.id;
-      fs.unlink(`data/${id}`, function(error){
+      fs.unlink(`data/${id}`, (error) => {
         response.writeHead(302, {Location: `/`});
         response.end();
       })
@@ -175,10 +174,12 @@ else if(pathname === '/update_process'){
     response.writeHead(404);
     response.end('Not found');
   }
-
 });
 
 /*
 *     포트번호 3000
 */
-app.listen(3000);
+app.listen(3000, () => {
+  console.log('Server is running...');
+  console.log('Connected 8080 port!!');
+});
