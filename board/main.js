@@ -176,9 +176,15 @@ else if(pathname === '/update_process'){
   }
 });
 
+
+/*
+* 정적 파일
+*/
+app.use(express.static('public'));
 /*
 *     포트번호 3000
 */
+
 app.listen(3000, () => {
   console.log('Server is running...');
   console.log('Connected 8080 port!!');

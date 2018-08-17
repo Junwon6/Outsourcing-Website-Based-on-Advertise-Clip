@@ -1,0 +1,387 @@
+html {
+	overflow-y: scroll; 
+}
+
+body {
+    font-family: 'Titillium Web', sans-serif;
+  }
+  
+html, body {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+/* 밑에 주석은 무엇인가요? 코멘트 남겨주세요. */
+/*
+a {
+    text-decoration:none;
+    color:#1ab188;
+    transition:.5s ease;
+  }
+  */
+  /*
+a:hover {
+      color:darken(#1ab188, 5%);
+}*/
+
+h1 {
+    text-align:center;
+    color:white;
+    font-weight:300;
+    margin:0 0 40px;
+}
+
+/* MENU-CSS */
+#logo img{
+    width : 170px;
+    height : 60px;
+}
+
+#menu {
+    background-color: white;
+    position: fixed;
+    z-index: 3;
+    width: 100%; 
+    height: 90px;
+    top:0px;
+    box-shadow: 0 0 5px rgba(#000, 0.15);
+    text-align: left;
+    line-height: 50px;
+}
+
+#menu ul {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: left;
+    align-content: left;
+    align-items: left;
+    
+}
+
+#menu li {
+    height: 50px;
+    padding: 0 25px;
+    display: inline-block;
+    transition: all 150ms ease;
+    line-height: inherit;
+    text-transform: uppercase;
+    
+}
+
+#menu li:hover {
+    background-color: #FF5675;
+    color : white;
+    height : 50px;
+}
+
+#menu a {
+    text-decoration:none;
+    color:#1ab188;
+    transition:.5s ease;
+    height : 50px;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+#menu a:hover {
+    background-color: #FF5675;
+    color : white;
+}
+
+/* #1 Section */
+#section_num1 {
+    background-color: #FFE3EE;
+    margin-top: 90px;
+}
+
+.num1_text {
+    position: relative;
+    text-align: left;
+    left : 100px;
+    top : 50px;
+}
+
+video {
+    position: relative;
+    top : -50px;
+    left : 200px;
+}
+
+/* 물방울 버튼 */
+#btn_bubble_create {
+    position : relative;
+    left : 300px;
+    top : -143px;
+    width : 142px;
+}
+
+#btn_bubble_register {
+    position : relative;
+    left : 100px;
+    top : -100px;
+    width : 142px;
+}
+
+.btn_bubble {
+    display: block;
+    animation: hue-rotate 10s linear infinite;
+}
+
+.button {
+    -webkit-font-smoo300g: antialiased;
+    background-color: #FF5675;
+    border: solid 1px;
+    color: #fff;
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 100;
+    text-decoration: none;
+    user-select: none;
+    letter-spacing: 1px;
+    color: white;
+    padding: 20px 40px;
+    text-transform: uppercase;
+    transition: all 0.1s ease-out;
+}
+
+.button:hover {
+    background-color: #90feb5;
+    color : #fff;
+}
+
+.button:active {
+    transform: scale(0.95);
+}
+
+.button--bubble {
+    position: relative;
+    z-index: 2;
+    color: white;
+    background: none;
+    font-size: 14px;
+    font-weight: bold; 
+}
+
+.button--bubble:hover {
+    background: none;
+}
+
+
+.button--bubble:hover + .button--bubble__effect-container .circle {
+    background: darken(#90feb5, 15%);
+}
+
+.button--bubble:hover + .button--bubble__effect-container .button {
+    background: darken(#90feb5, 15%);
+}
+
+.button--bubble:active + .button--bubble__effect-container {
+    transform: scale(0.95);
+}
+
+.button--bubble__container {
+    position: relative;
+    display: inline-block;
+}
+
+.button--bubble__container .effect-button {
+    position: absolute;
+    width: 50%;
+    height: 25%;
+    top: 50%;
+    left: 25%;
+    z-index: 1;
+    transform: translateY(-50%);
+    background: #FF5675;
+    transition: background 0.1s ease-out;
+}
+
+
+
+.button--bubble:hover + .button--bubble__effect-container .circle {
+    background: darken(#90feb5, 15%);
+}
+
+.button--bubble:hover + .button--bubble__effect-container .button {
+    background: darken(#90feb5, 15%);
+}
+
+.button--bubble:active + .button--bubble__effect-container {
+    transform: scale(0.95);
+}
+
+.button--bubble__container {
+    position: relative;
+    display: inline-block;
+}
+
+.button--bubble__container .effect-button {
+    position: absolute;
+    width: 50%;
+    height: 25%;
+    top: 50%;
+    left: 25%;
+    z-index: 1;
+    transform: translateY(-50%);
+    background: #FF5675;
+    transition: background 0.1s ease-out;
+}
+
+.btn_text{
+    font-weight: bold;
+}
+  
+.button--bubble__effect-container {
+    position: absolute;
+    display: block;
+    width: 200%;
+    height: 400%;
+    top: -150%;
+    left: -50%;
+    -webkit-filter: url("#goo");
+    filter: url("#goo");
+    transition: all 0.1s ease-out;
+    pointer-events: none;
+}
+
+.button--bubble__effect-container .circle {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-radius: 15px;
+    background: #FF5675;
+    transition: background 0.1s ease-out;
+}
+
+.button--bubble__effect-container .circle.top-left {
+    top: 40%;
+    left: 27%;
+}
+
+.button--bubble__effect-container .circle.bottom-right {
+    bottom: 40%;
+    right: 27%;
+}
+
+.goo {
+    position: absolute;
+    visibility: hidden;
+    width: 1px;
+    height: 1px;
+}
+
+.button--bubble__container {
+    top: 50%;
+    margin-top: -25px;
+}
+
+/* 처음 보는 문법의 코드 */
+/* 일단 주석처리 했는데 실제로 변경된 것은 없어보임 - 준원 */
+/* @keyframes hue-rotate {
+      from {
+        -webkit-filter: hue-rotate(0);
+        -moz-filter: hue-rotate(0);
+        -ms-filter: hue-rotate(0);
+        filter: hue-rotate(0);
+      }
+      to {
+        -webkit-filter: hue-rotate(360deg);
+        -moz-filter: hue-rotate(360deg);
+        -ms-filter: hue-rotate(360deg);
+        filter: hue-rotate(360deg);
+      }
+} */
+
+/* #2 Section */
+.section_num2 {
+    position: relative;
+}
+
+.table_list {
+
+    width : 500px;
+    height: 50px;
+
+    border-collapse: collapse;
+    border : solid 1px grey;
+    margin: 10px auto;
+    border-radius: 0.2em; 
+    box-shadow: 1px 1px 2px #CEC6C6;
+    line-height: 50px; /* 글씨를 중앙으로 배치할 수 있었음. */
+    color: #495161;
+    font-size: 13px;
+}
+
+.table_list tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.table_list tr:hover {
+    background-color: #ddd;
+}
+
+.table_list td {
+    padding: 5px;
+}
+
+.project, .company_name, .deadline, .reward{
+    text-align: center;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+img{
+    margin-right: 5px;
+    width: 12px;
+    height: 12px;
+}
+.project{
+    width: 200px;
+    font-weight: bold;
+    text-align: left;
+}
+.company_name{
+    width: 80px;
+}
+.deadline{
+    width: 60px;
+}
+.reward{
+    width: 60px;
+}
+
+/* #3 Section */
+.section_num3{
+    background-color: #FFE3EE;
+}
+
+/* FOOTER */
+footer_nav1 ul{
+    list-style: none;
+
+}
+
+li {
+    display : inline-block;
+    margin : 5px;
+}
+
+footer {
+    background-color: #FFACB7;
+}
+
+footer nav {
+    background-color: #FFACB7;
+
+}
+
+/* 색상표
+*
+* 
+* body 화면 색 1 : white
+* body 화면 색 2 : #FFE3EE
+* table 색 : #f2f2f2
+* footer 색 : #FFACB7
+*/

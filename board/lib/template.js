@@ -6,12 +6,34 @@ module.exports = {
     <head>
       <title>cre ground - ${title}</title>
       <meta charset="utf-8">
+      <link rel="stylesheet" href="/main.css" />
     </head>
     <body>
-      <h1><a href="/">default(logo)</a></h1>
+      <nav>
+        <ul>
+          <li>
+            <a href="/">default(logo)</a>
+          </li>
+          <li>
+            <a href="/">Register</a>
+          </li>
+          <li>
+            <a href="/">create</a>
+          </li>
+          <li>
+            <a href="/">playground</a>
+          </li>
+          <li>
+            <a href="/">Q&A</a>
+          </li>
+        </ul>
+      </nav>
+      
+
       ${list}
       ${control}
       ${body}
+      */
     </body>
     </html>
     `;
