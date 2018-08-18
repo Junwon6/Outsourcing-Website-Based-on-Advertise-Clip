@@ -85,12 +85,11 @@ app.post("/contacts", (req, res) => {
 
 // Routes
 app.use("/", require("./routes/home"));
-app.use("/", require("./routes/home"));
 app.use("/posts", require("./routes/posts")); // 1
 
 
 
 // Port setting ...
-app.listen(3000, () => {
+app.listen(4000, () => {
     console.log("server on!");
 });
