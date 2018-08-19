@@ -1,8 +1,13 @@
-<!-- views/partials/nav.ejs -->
-
 <nav class="navbar navbar-default">
     <div class="container">
-        <!-- <div class="navbar-header">... -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="navbar-brand">My Website</div>
+        </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
                 <li>
@@ -14,6 +19,23 @@
                 <li>
                     <a href="/posts">게시판</a>
                 </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <% if(isAuthenticated){ %>
+                    <li>
+                        <a href="/users/<%= currentUser.username %>">My Account</a>
+                    </li>
+                    <li>
+                        <a href="/logout">Logout</a>
+                    </li>
+                    <% } else { %>
+                        <li>
+                            <a href="/users/new">Sign Up</a>
+                        </li>
+                        <li>
+                            <a href="/login">Login</a>
+                        </li>
+                        <% } %>
             </ul>
         </div>
     </div>
