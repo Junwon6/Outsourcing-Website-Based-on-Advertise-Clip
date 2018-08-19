@@ -2,6 +2,9 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser"); // body-parser은 POST요청 데이터를 추출하는 미들웨어.
 const methodOverride = require("method-override");
+var flash = require("connect-flash");
+var session = require("express-session");
+var passport = require("./config/passport");
 const app = express();
 
 // DB setting
@@ -36,6 +39,15 @@ app.use(bodyParser.urlencoded({ // urlencoded data를 분석
 //객체 안에 객체를 파싱할 수 있게하려면 true.
 
 app.use(methodOverride("_method"));
+app.use(flash());
+app.use(session({
+    secret: "MySecret"
+}));
+
+// Passport
+app.use(passport.initialize());
+app.use(passport.session());
+
 /*
 // DB schema // schema object 생성
 const contactSchema = mongoose.Schema({
@@ -82,12 +94,17 @@ app.post("/contacts", (req, res) => {
     });
 });
  */
+// Custom Middlewares
+app.use(function (req, res, next) {
+    res.locals.isAuthenticated = req.isAuthenticated();
+    res.locals.currentUser = req.user;
+    next();
+})
 
 // Routes
 app.use("/", require("./routes/home"));
-app.use("/posts", require("./routes/posts")); // 1
-
-
+app.use("/posts", require("./routes/posts"));
+app.use("/users", require("./routes/users"));
 
 // Port setting ...
 app.listen(4000, () => {
