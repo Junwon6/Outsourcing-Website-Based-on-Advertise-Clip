@@ -2,9 +2,9 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser"); // body-parser은 POST요청 데이터를 추출하는 미들웨어.
 const methodOverride = require("method-override");
-var flash = require("connect-flash");
-var session = require("express-session");
-var passport = require("./config/passport");
+const flash = require("connect-flash"); // 변수처럼 이름을 정하고 값(문자열, 숫자, 배열, 객체 등등 어떠한 형태의 값이라도 사용 가능)을 저장할 수 있는데, 한번 생성 되면 사용될 때까지 서버에 저장이 되어 있다가 한번 사용되면 사라지는 형태의 data
+const session = require("express-session");
+const passport = require("./config/passport");
 const app = express();
 
 // DB setting
@@ -39,63 +39,23 @@ app.use(bodyParser.urlencoded({ // urlencoded data를 분석
 //객체 안에 객체를 파싱할 수 있게하려면 true.
 
 app.use(methodOverride("_method"));
-app.use(flash());
+// req.flash(문자열, 저장할_값) 의 형태로 저장할_값을 문자열에 저장.
+// req.flash(문자열) 인 경우 해당 문자열에 저장된 값들을 배열로 불러옴. 
+// 저장된 값이 없다면 빈 배열([])을 return.
+app.use(flash()); // flash를 초기화
 app.use(session({
-    secret: "MySecret"
-}));
+    secret: "MySecret",
+    saveUninitialized: true,
+    resave: true
+})); // 서버에서 접속자를 구분시키는 역할.
 
 // Passport
 app.use(passport.initialize());
 app.use(passport.session());
 
-/*
-// DB schema // schema object 생성
-const contactSchema = mongoose.Schema({
-    name: {
-        type: String,
-        required: true,
-        unique: true
-    },
-    email: {
-        type: String
-    },
-    phone: {
-        type: String
-    }
-});
-
-/* 함수인자의 첫번째 DB에서 사용될 document의 이름, 두번째는 생선된 object */
-/*
-const Contact = mongoose.model("contact", contactSchema); // mongoose.model함수를 사용하여 contact schema의 model을 생성.
-
-// Home // 6
-app.get("/", (req, res) => {
-    res.redirect("/contacts");
-});
-
-// Contacts - Index // 7
-app.get("/contacts", (req, res) => {
-    Contact.find({}, (err, contacts) => {
-        if (err) return res.json(err);
-        res.render("contacts/index", { // 
-            contacts // 검색결과가 한 개 이상일 수 있기 때문에 항상 array 없다면 빈 array 반환.
-        });
-    })
-});
-// Contacts - New // 8
-app.get("/contacts/new", (req, res) => {
-    res.render("contacts/new");
-});
-// Contacts - create // 9
-app.post("/contacts", (req, res) => {
-    Contact.create(req.body, (err, contact) => {
-        if (err) return res.json(err);
-        res.redirect("/contacts");
-    });
-});
- */
 // Custom Middlewares
-app.use(function (req, res, next) {
+// res.locals에 isAuthenticated,currentUser이 있어서 views/posts/index.ejs에서 바로 사용할 수 있음.
+app.use((req, res, next) => {
     res.locals.isAuthenticated = req.isAuthenticated();
     res.locals.currentUser = req.user;
     next();

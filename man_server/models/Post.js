@@ -1,16 +1,18 @@
-var mongoose = require("mongoose");
-var util = require("../util");
+const mongoose = require("mongoose");
+const util = require("../util");
 
 // schema
-var postSchema = mongoose.Schema({
+// DB schema // schema object 생성
+const postSchema = mongoose.Schema({
     title: {
         type: String,
         required: [true, "Title is required!"]
     },
-    body: {
+    body: { 
         type: String,
         required: [true, "Body is required!"]
     },
+    // post에 작성자 정보(user.id)를 기록하고, 이 정보는 user collection에서 가져오는 것임을 ref를 통해서 지정
     author: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "user",
@@ -31,25 +33,26 @@ var postSchema = mongoose.Schema({
 
 // virtuals
 postSchema.virtual("createdDate")
-    .get(function () {
+    .get(() => {
         return util.getDate(this.createdAt);
     });
 
 postSchema.virtual("createdTime")
-    .get(function () {
+    .get(() => {
         return util.getTime(this.createdAt);
     });
 
 postSchema.virtual("updatedDate")
-    .get(function () {
+    .get(() => {
         return util.getDate(this.updatedAt);
     });
 
 postSchema.virtual("updatedTime")
-    .get(function () {
+    .get(() => {
         return util.getTime(this.updatedAt);
     });
 
 // model & export
-var Post = mongoose.model("post", postSchema);
+/* 함수인자의 첫번째 DB에서 사용될 document의 이름, 두번째는 생선된 object */
+const Post = mongoose.model("post", postSchema);
 module.exports = Post;

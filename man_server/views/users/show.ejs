@@ -10,6 +10,7 @@
 
       <div class="buttons">
         <a class="btn btn-default" href="/users">Back</a>
+<!-- 로그인이 된 상태이고, 해당 user id(user.id)와 현재 로그인된 사용자의 id(currentUser.id)가 일치하는 경우에만 edit을 보여줌 -->
         <% if(isAuthenticated && currentUser.id == user.id){ %>
           <a class="btn btn-default" href="/users/<%= user.username %>/edit">Edit</a>
         <% } %>

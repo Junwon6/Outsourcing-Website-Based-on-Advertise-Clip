@@ -1,14 +1,16 @@
-var express = require("express");
-var router = express.Router();
-var Post = require("../models/Post");
-var util = require("../util");
+const express = require("express");
+const router = express.Router();
+const Post = require("../models/Post");
+const util = require("../util");
 
 // Index
-router.get("/", function (req, res) {
+// populate => relationship이 형성되어 있는 항목의 값 생성.
+// 현재 post의 author에는 user의 id가 기록되어 있는데, 이 값을 바탕으로 실제 user의 값을 author에 생성
+router.get("/", (req, res) => {
     Post.find({})
         .populate("author")
         .sort("-createdAt")
-        .exec(function (err, posts) {
+        .exec((err, posts) => {
             if (err) return res.json(err);
             res.render("posts/index", {
                 posts: posts
@@ -17,9 +19,10 @@ router.get("/", function (req, res) {
 });
 
 // New
-router.get("/new", util.isLoggedin, function (req, res) {
-    var post = req.flash("post")[0] || {};
-    var errors = req.flash("errors")[0] || {};
+// util.isLoggedin를 사용해서 로그인이 된 경우에만 다음 callback을 호출
+router.get("/new", util.isLoggedin, (req, res) => {
+    const post = req.flash("post")[0] || {};
+    const errors = req.flash("errors")[0] || {};
     res.render("posts/new", {
         post: post,
         errors: errors
@@ -27,9 +30,10 @@ router.get("/new", util.isLoggedin, function (req, res) {
 });
 
 // create
-router.post("/", util.isLoggedin, function (req, res) {
-    req.body.author = req.user._id;
-    Post.create(req.body, function (err, post) {
+// util.isLoggedin를 사용해서 로그인이 된 경우에만 다음 callback을 호출
+router.post("/", util.isLoggedin, (req, res) => {
+    req.body.author = req.user._id; // 글을 작성할때는 req.user._id를 가져와서 post의 author에 기록
+    Post.create(req.body, (err, post) => {
         if (err) {
             req.flash("post", req.body);
             req.flash("errors", util.parseError(err));
@@ -40,12 +44,12 @@ router.post("/", util.isLoggedin, function (req, res) {
 });
 
 // show
-router.get("/:id", function (req, res) {
+router.get("/:id", (req, res) => {
     Post.findOne({
             _id: req.params.id
         })
         .populate("author")
-        .exec(function (err, post) {
+        .exec((err, post) => {
             if (err) return res.json(err);
             res.render("posts/show", {
                 post: post
@@ -54,13 +58,15 @@ router.get("/:id", function (req, res) {
 });
 
 // edit
-router.get("/:id/edit", util.isLoggedin, checkPermission, function (req, res) {
-    var post = req.flash("post")[0];
-    var errors = req.flash("errors")[0] || {};
+// util.isLoggedin를 사용해서 로그인이 된 경우에만 다음 callback을 호출
+// checkPermission를 사용해서 본인이 작성한 글에만 다음 callback을 호출
+router.get("/:id/edit", util.isLoggedin, checkPermission, (req, res) => {
+    const post = req.flash("post")[0];
+    const errors = req.flash("errors")[0] || {};
     if (!post) {
         Post.findOne({
             _id: req.params.id
-        }, function (err, post) {
+        }, (err, post) => {
             if (err) return res.json(err);
             res.render("posts/edit", {
                 post: post,
@@ -77,13 +83,15 @@ router.get("/:id/edit", util.isLoggedin, checkPermission, function (req, res) {
 });
 
 // update
-router.put("/:id", util.isLoggedin, checkPermission, function (req, res) {
+// util.isLoggedin를 사용해서 로그인이 된 경우에만 다음 callback을 호출
+// checkPermission를 사용해서 본인이 작성한 글에만 다음 callback을 호출
+router.put("/:id", util.isLoggedin, checkPermission, (req, res) => {
     req.body.updatedAt = Date.now();
     Post.findOneAndUpdate({
         _id: req.params.id
     }, req.body, {
         runValidators: true
-    }, function (err, post) {
+    }, (err, post) => {
         if (err) {
             req.flash("post", req.body);
             req.flash("errors", util.parseError(err));
@@ -94,10 +102,11 @@ router.put("/:id", util.isLoggedin, checkPermission, function (req, res) {
 });
 
 // destroy
-router.delete("/:id", util.isLoggedin, checkPermission, function (req, res) {
+// util.isLoggedin를 사용해서 로그인이 된 경우에만 다음 callback을 호출
+router.delete("/:id", util.isLoggedin, checkPermission, (req, res) => {
     Post.remove({
         _id: req.params.id
-    }, function (err) {
+    }, (err) => {
         if (err) return res.json(err);
         res.redirect("/posts");
     });
@@ -106,13 +115,16 @@ router.delete("/:id", util.isLoggedin, checkPermission, function (req, res) {
 module.exports = router;
 
 // private functions
+// 해당 게시물에 기록된 author와 로그인된 user.id를 비교해서 같은 경우 통과.
+// 만약 다르다면 util.noPermission함수를 호출.
 function checkPermission(req, res, next) {
     Post.findOne({
         _id: req.params.id
-    }, function (err, post) {
-        if (err) return res.json(err);
-        if (post.author != req.user.id) return util.noPermission(req, res);
-
+    }, (err, post) => {
+        if (err) 
+            return res.json(err);
+        if (post.author != req.user.id) 
+            return util.noPermission(req, res);
         next();
     });
 }
