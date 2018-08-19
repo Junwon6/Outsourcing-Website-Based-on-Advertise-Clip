@@ -1,19 +1,19 @@
-var express = require("express");
-var router = express.Router();
-var passport = require("../config/passport");
+const express = require("express");
+const router = express.Router();
+const passport = require("../config/passport");
 
 // Home
-router.get("/", function (req, res) {
+router.get("/", (req, res) => {
     res.render("home/welcome");
 });
-router.get("/about", function (req, res) {
+router.get("/about", (req, res) => {
     res.render("home/about");
 });
 
 // Login
-router.get("/login", function (req, res) {
-    var username = req.flash("username")[0];
-    var errors = req.flash("errors")[0] || {};
+router.get("/login", (req, res) => {
+    const username = req.flash("username")[0];
+    const errors = req.flash("errors")[0] || {};
     res.render("home/login", {
         username: username,
         errors: errors
@@ -22,9 +22,9 @@ router.get("/login", function (req, res) {
 
 // Post Login
 router.post("/login",
-    function (req, res, next) {
-        var errors = {};
-        var isValid = true;
+    (req, res, next) => {
+        const errors = {};
+        const isValid = true;
 
         if (!req.body.username) {
             isValid = false;
@@ -48,7 +48,7 @@ router.post("/login",
     }));
 
 // Logout
-router.get("/logout", function (req, res) {
+router.get("/logout", (req, res) => {
     req.logout();
     res.redirect("/");
 });

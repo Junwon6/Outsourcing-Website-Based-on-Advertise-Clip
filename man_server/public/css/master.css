@@ -26,6 +26,7 @@ form .form-group {
     padding-bottom: 6px;
 }
 
+/* text-overflow: ellipsis랑 overflow: hidden 둘 중 하나라도 없으면 작동하지 않는다. */
 .ellipsis {
     display: block;
     width: 100%;
@@ -141,7 +142,7 @@ form .form-group {
 .post-index .posts {
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
-    table-layout: fixed;
+    table-layout: fixed; /* cell이 table보다 더 길어지지 않게 된다. */
 }
 
 .post .posts th,

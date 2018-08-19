@@ -1,13 +1,15 @@
-var mongoose = require("mongoose");
-var bcrypt   = require("bcrypt-nodejs");
+const mongoose = require("mongoose");
+const bcrypt   = require("bcrypt-nodejs");
 
 // schema
-var userSchema = mongoose.Schema({
+// schema에서 match: [/정규표현식/,"에러메세지"]를 사용하면
+// 해당 표현식에 맞지 않는 값이 오는 경우 에러메세지를 보냄.
+const userSchema = mongoose.Schema({
   username:{
     type:String,
     required:[true,"Username is required!"],
     match:[/^.{4,12}$/,"Should be 4-12 characters!"],
-    trim:true,
+    trim: true, // trim은 문자열 앞뒤에 빈칸이 있는 경우 빈칸을 제거해 주는 옵션
     unique:true
   },
   password:{
@@ -21,6 +23,12 @@ var userSchema = mongoose.Schema({
     match:[/^.{4,12}$/,"Should be 4-12 characters!"],
     trim:true
   },
+  phonenum: {
+    type: String,
+    required: [true, "PhoneNum is required!"],
+    match: [/^\d{3}-\d{3,4}-\d{4}$/, "Should be a vaild Phone Number!"],
+    trim: true
+  },
   email:{
     type:String,
     match:[/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,"Should be a vaild email address!"],
@@ -32,26 +40,42 @@ var userSchema = mongoose.Schema({
 
 // virtuals
 userSchema.virtual("passwordConfirmation")
-.get(function(){ return this._passwordConfirmation; })
-.set(function(value){ this._passwordConfirmation=value; });
+.get(() => {
+   return this._passwordConfirmation; 
+})
+.set((value) => {
+  this._passwordConfirmation = value;
+});
 
 userSchema.virtual("originalPassword")
-.get(function(){ return this._originalPassword; })
-.set(function(value){ this._originalPassword=value; });
+.get(() => {
+  return this._originalPassword;
+})
+.set((value) => {
+  this._originalPassword = value;
+});
 
 userSchema.virtual("currentPassword")
-.get(function(){ return this._currentPassword; })
-.set(function(value){ this._currentPassword=value; });
+.get(() => {
+  return this._currentPassword;
+})
+.set((value) => {
+  this._currentPassword = value;
+});
 
 userSchema.virtual("newPassword")
-.get(function(){ return this._newPassword; })
-.set(function(value){ this._newPassword=value; });
+.get(() => {
+  return this._newPassword;
+})
+.set((value) => {
+  this._newPassword = value;
+});
 
 // password validation
-var passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,16}$/;
-var passwordRegexErrorMessage = "Should be minimum 8 characters of alphabet and number combination!";
-userSchema.path("password").validate(function(v) {
-  var user = this;
+const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,16}$/;
+const passwordRegexErrorMessage = "Should be minimum 8 characters of alphabet and number combination!";
+userSchema.path("password").validate((v) => {
+  const user = this;
 
   // create user
   if(user.isNew){
@@ -82,8 +106,8 @@ userSchema.path("password").validate(function(v) {
 });
 
 // hash password
-userSchema.pre("save", function (next){
-  var user = this;
+userSchema.pre("save", (next) => {
+  const user = this;
   if(!user.isModified("password")){
     return next();
   } else {
@@ -93,11 +117,11 @@ userSchema.pre("save", function (next){
 });
 
 // model methods
-userSchema.methods.authenticate = function (password) {
-  var user = this;
+userSchema.methods.authenticate = (password) => {
+  const user = this;
   return bcrypt.compareSync(password,user.password);
 };
 
 // model & export
-var User = mongoose.model("user",userSchema);
+const User = mongoose.model("user",userSchema);
 module.exports = User;

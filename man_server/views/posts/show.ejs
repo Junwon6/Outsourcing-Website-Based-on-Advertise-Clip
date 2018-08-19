@@ -1,3 +1,4 @@
+<!-- views/posts/show.ejs -->
 <!DOCTYPE html>
 <html>
   <head>
@@ -11,6 +12,7 @@
 
       <div class="buttons">
         <a class="btn btn-default" href="/posts">Back</a>
+        <!-- 로그인이 된 상태이고, 게시물의 작성자 id(post.author.id)와 현재 로그인된 사용자의 id(currentUser.id)가 일치하는 경우에만 edit, delete을 보여줌 -->
         <% if(isAuthenticated && post.author && currentUser.id == post.author.id){ %>
           <a class="btn btn-default" href="/posts/<%= post._id %>/edit">Edit</a>
           <form action="/posts/<%= post._id %>?_method=delete" method="post">
