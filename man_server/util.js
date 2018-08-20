@@ -1,5 +1,11 @@
 var util = {};
 
+/* mongoose에서 내는 에러와 mongoDB에서 내는 에러의 형태가 다르기 때문에 이 함수를 통해 에러의 형태를
+  {항목이름: {message: "에러메세지"}로 통일시켜주는 함수입니다.
+  if 에서 mongoose의 model validation error를,
+  else if 에서 mongoDB에서 username이 중복되는 error를,
+  else 에서 그 외 error들을 처리합니다.
+*/
 util.parseError = (errors) => {
   var parsed = {};
   if(errors.name == 'ValidationError'){

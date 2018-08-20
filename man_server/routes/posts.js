@@ -90,7 +90,7 @@ router.put("/:id", util.isLoggedin, checkPermission, (req, res) => {
     Post.findOneAndUpdate({
         _id: req.params.id
     }, req.body, {
-        runValidators: true
+        runValidators: true // findOneAndUpdate는 기본설정이 schema에 있는 validation을 작동하지 않도록 되어 있기때문에 이 option을 통해서 validation이 작동하도록 설정해 주어야함.
     }, (err, post) => {
         if (err) {
             req.flash("post", req.body);
