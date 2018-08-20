@@ -21,6 +21,7 @@ db.on("error", (err) => {
 
 // Other settings
 // 미들웨어 설정
+// app.use들 중에 위에 있는 것 부터 순서대로 실행.
 /* ejs를 사용하기 위해서 express의 view engine에 ejs를 set */
 app.set("view engine", "ejs");
 
@@ -50,14 +51,16 @@ app.use(session({
 })); // 서버에서 접속자를 구분시키는 역할.
 
 // Passport
-app.use(passport.initialize());
-app.use(passport.session());
+app.use(passport.initialize()); // passport를 초기화 시켜주는 함수.
+app.use(passport.session()); // passport를 session과 연결해 주는 함수.
 
 // Custom Middlewares
 // res.locals에 isAuthenticated,currentUser이 있어서 views/posts/index.ejs에서 바로 사용할 수 있음.
+// req.locals.isAuthenticated는 ejs에서 user가 로그인이 되어 있는지 아닌지를 확인하는데 사용
+// req.locals.currentUser는 로그인된 user의 정보를 불러오는데 사용
 app.use((req, res, next) => {
-    res.locals.isAuthenticated = req.isAuthenticated();
-    res.locals.currentUser = req.user;
+    res.locals.isAuthenticated = req.isAuthenticated(); //req.isAuthenticated()는 passport에서 제공하는 함수로, 현재 로그인이 되어있는지 아닌지를 true,false로 return.
+    res.locals.currentUser = req.user; // passport에서 추가하는 항목으로 로그인이 되면 session으로 부터 user를 deserialize하여 생성.
     next();
 })
 
