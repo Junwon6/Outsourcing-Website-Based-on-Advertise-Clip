@@ -210,7 +210,6 @@ form .form-group {
 .user-index ul li {
     display: inline-block;
     list-style-type: none;
-    float: left;
 }
 
 .user-index ul li a {

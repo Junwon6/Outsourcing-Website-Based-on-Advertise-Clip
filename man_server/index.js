@@ -8,14 +8,14 @@ const passport = require("./config/passport");
 const app = express();
 
 // DB setting
-mongoose.connect(process.env.MONGO_DB, {
-    promiseLibrary: global.Promise
-});
+mongoose.connect(process.env.MONGO_DB, {});
 const db = mongoose.connection;
 db.once("open", () => {
     console.log("DB connected");
+    console.log("process.env.MONGO_DB: ", process.env.MONGO_DB);
 });
 db.on("error", (err) => {
+    console.log("process.env.MONGO_DB: ", process.env.MONGO_DB);
     console.log("DB ERROR : ", err);
 });
 
@@ -70,6 +70,6 @@ app.use("/posts", require("./routes/posts"));
 app.use("/users", require("./routes/users"));
 
 // Port setting ...
-app.listen(4000, () => {
+app.listen(3000, () => {
     console.log("server on!");
 });

@@ -1,10 +1,10 @@
-const mongoose = require("mongoose");
-const bcrypt   = require("bcrypt-nodejs");
+var mongoose = require("mongoose");
+var bcrypt   = require("bcrypt-nodejs");
 
 // schema
 // schema에서 match: [/정규표현식/,"에러메세지"]를 사용하면
 // 해당 표현식에 맞지 않는 값이 오는 경우 에러메세지를 보냄.
-const userSchema = mongoose.Schema({
+var userSchema = mongoose.Schema({
   username:{
     type:String,
     required:[true,"Username is required!"],
@@ -23,12 +23,6 @@ const userSchema = mongoose.Schema({
     match:[/^.{4,12}$/,"Should be 4-12 characters!"],
     trim:true
   },
-  phonenum: {
-    type: String,
-    required: [true, "PhoneNum is required!"],
-    match: [/^\d{3}-\d{3,4}-\d{4}$/, "Should be a vaild Phone Number!"],
-    trim: true
-  },
   email:{
     type:String,
     match:[/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,"Should be a vaild email address!"],
@@ -40,44 +34,44 @@ const userSchema = mongoose.Schema({
 
 // virtuals
 userSchema.virtual("passwordConfirmation")
-.get(() => {
+.get(function() {
    return this._passwordConfirmation; 
 })
-.set((value) => {
+.set(function(value) {
   this._passwordConfirmation = value;
 });
 
 userSchema.virtual("originalPassword")
-.get(() => {
+.get(function() {
   return this._originalPassword;
 })
-.set((value) => {
+.set(function(value) {
   this._originalPassword = value;
 });
 
 userSchema.virtual("currentPassword")
-.get(() => {
+.get(function() {
   return this._currentPassword;
 })
-.set((value) => {
+.set(function(value) {
   this._currentPassword = value;
 });
 
 userSchema.virtual("newPassword")
-.get(() => {
+.get(function() {
   return this._newPassword;
 })
-.set((value) => {
+.set(function(value) {
   this._newPassword = value;
 });
 
 // password validation
-const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,16}$/;
-const passwordRegexErrorMessage = "Should be minimum 8 characters of alphabet and number combination!";
-userSchema.path("password").validate((v) => {
-  const user = this;
+var passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,16}$/;
+var passwordRegexErrorMessage = "Should be minimum 8 characters of alphabet and number combination!";
+userSchema.path("password").validate(function(v) {
+  var user = this;
 
-  // create user
+  // create user 회원가입의 경우
   if(user.isNew){
     if(!user.passwordConfirmation){
       user.invalidate("passwordConfirmation", "Password Confirmation is required!");
@@ -89,7 +83,7 @@ userSchema.path("password").validate((v) => {
     }
   }
 
-  // update user
+  // update user 회원정보 수정의 경우
   if(!user.isNew){
     if(!user.currentPassword){
       user.invalidate("currentPassword", "Current Password is required!");
@@ -106,8 +100,8 @@ userSchema.path("password").validate((v) => {
 });
 
 // hash password
-userSchema.pre("save", (next) => {
-  const user = this;
+userSchema.pre("save", function(next) {
+  var user = this;
   if(!user.isModified("password")){
     return next();
   } else {
@@ -117,11 +111,11 @@ userSchema.pre("save", (next) => {
 });
 
 // model methods
-userSchema.methods.authenticate = (password) => {
-  const user = this;
+userSchema.methods.authenticate = function(password) {
+  var user = this;
   return bcrypt.compareSync(password,user.password);
 };
 
 // model & export
-const User = mongoose.model("user",userSchema);
+var User = mongoose.model("user",userSchema);
 module.exports = User;
