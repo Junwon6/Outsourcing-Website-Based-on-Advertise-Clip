@@ -1,9 +1,9 @@
-const mongoose = require("mongoose");
-const util = require("../util");
+var mongoose = require("mongoose");
+var util = require("../util");
 
 // schema
 // DB schema // schema object 생성
-const postSchema = mongoose.Schema({
+var postSchema = mongoose.Schema({
     title: {
         type: String,
         required: [true, "Title is required!"]
@@ -33,26 +33,26 @@ const postSchema = mongoose.Schema({
 
 // virtuals
 postSchema.virtual("createdDate")
-    .get(() => {
+    .get(function() {
         return util.getDate(this.createdAt);
     });
 
 postSchema.virtual("createdTime")
-    .get(() => {
+    .get(function() {
         return util.getTime(this.createdAt);
     });
 
 postSchema.virtual("updatedDate")
-    .get(() => {
+    .get(function() {
         return util.getDate(this.updatedAt);
     });
 
 postSchema.virtual("updatedTime")
-    .get(() => {
+    .get(function() {
         return util.getTime(this.updatedAt);
     });
 
 // model & export
 /* 함수인자의 첫번째 DB에서 사용될 document의 이름, 두번째는 생선된 object */
-const Post = mongoose.model("post", postSchema);
+var Post = mongoose.model("post", postSchema);
 module.exports = Post;
