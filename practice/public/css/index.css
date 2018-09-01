@@ -73,6 +73,7 @@ ul{
     float : left;
     background-color:  white;
     z-index: 4;
+    position : fixed;
 }
 .왼쪽메뉴 ul li button{
     outline:none;

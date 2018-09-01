@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/index.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/register.css" />
+    
+    <title>Document</title>
+</head>
+<body>
+    <div id="white_space"></div>
+    <header>
+        <div id="logo"><img src="/img/creground_2.PNG" id="logo_img" alt="logo"></div>
+        <div id="local_camp">default</div>
+    </header>
+    <div class="왼쪽메뉴"> <!-- 왼쪽메뉴 -->
+        <ul>
+            <li><a href="/"><button>홈</button></a></li>
+            <li><a href="/view/register.html"><button>등록하기</button></a></li>
+        </ul>
+    </div>
+
+    <!-- 작성 폼 -->
+    <div class="작성폼">
+            <form id="frm" action="/member/infoSave" method="post" enctype="multipart/form-data">
+                <input id="id" name="id" type="hidden" value="2018"/>
+                
+                <div class="폼_내용">
+                    <label class="required">기업명</label>
+                    <div class="input">
+                        <div class="input-type1">
+                            <input id="nickName" name="nickName" placeholder="사이트 내에 노출되는 이름입니다." type="text" value=""/></div>
+                        </div>
+                    </div>
+
+                <div class="폼_내용">
+                    <label>회사 소개</label>
+                    <div class="input">
+                        <div class="textarea-type1">
+                            <textarea id="description" name="description" placeholder="회사에 대해 간략히 설명해 주세요. (200자 이내)"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="폼_내용">
+                    <label class="required">이메일</label>
+                    <div class="input">
+                        <div class="input-type1">
+                            <input id="email" name="email" placeholder="이메일 주소를 입력해주세요." type="text" value="dentist312@naver.com"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="폼_내용">
+                    <label>홈페이지</label>
+                    <div class="input">
+                        <div class="input-type1">
+                            <input id="homepage" name="homepage" placeholder="기업 또는 개인이 운영하는 공식 홈페이지 url을 입력해 주세요." type="text" value=""/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="폼_내용">
+                    <label>프로필 사진</label>
+                    <div class="input">
+                        <div class="file-type1">
+                            <div class="img uploadfile1">
+                                <img class="default-img" src="https://uconnec.com/resources/images/default-image.png" id="profile_img"/>
+                            </div>
+                            <div class="button">
+                                <div class="btn-file-wrap">
+                                    <a href="#" class="btn-type2">이미지 등록</a>
+                                    <input type="file" name="uploadFile" id="uploadFile" style="width:104px;height:54px;"/>
+                                    <input type="hidden" name="oldUploadFile" id="oldUploadFile" value=""/>
+                                    <span class="descTxt">추천 파일 형식: 500 x 500 px (jpg 또는 png)</span>
+                                </div>
+                                <p class="desc"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="폼_내용">
+                    <label class="required">회원 유형</label>
+                    <div class="input">
+                        <select id="memberType" name="memberType" style="width:190px">
+                            <option value="C">법인사업자</option><option value="I">개인사업자</option>
+                            <option value="T">프리랜서</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="폼_내용">
+                    <label class="required">이름</label>
+                    <div class="input">
+                        <div class="input-type1">
+                            <input id="name" name="name" type="text" value=""/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="폼_내용" id="cellphone">
+                    <label class="required">핸드폰 번호</label>
+                    <div class="input mobile">
+                        <div class="row">
+                            <select style="width:100px" id="mobile1">
+                                <option value="010">010</option>
+                                <option value="011">011</option>
+                            </select>
+                            <div class="input-type1">
+                                <input type="text" id="mobile2" maxlength="4"/>
+                            </div>
+                            <div class="input-type1">
+                                <input type="text" id="mobile3" maxlength="4"/>
+                            </div>
+                            <a href="#" id="sendSmsAuthBtn" class="btn-type2">인증번호 받기</a>
+                            <input id="mobile" name="mobile" type="hidden" value=""/>
+                        </div>
+
+                        <div class="row">
+                                <div class="input-type1" style="width:150px;">
+                                    <input id="mobileAuthNo" name="mobileAuthNo" placeholder="인증번호를 입력해주세요." type="text" value=""/>
+                                </div>
+                                <a id="smsAuthBtn" href="#" class="btn-type2">인증 완료</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="폼_내용" style="margin-bottom: 45px;">
+                    <div class="button">
+                        <a href="#" class="btn-type2" id="cancelBtn">취소</a>
+                        <a href="#" class="btn-type3" id="saveBtn">저장</a>
+                    </div>
+                </div>
+            </form>
+    </div>
+
+    <footer></footer>
+</body>
+</html>
