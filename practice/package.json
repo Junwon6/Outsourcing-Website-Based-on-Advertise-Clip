@@ -1,8 +1,32 @@
 {
-  "name": "express-tutorial",
+  "name": "post",
   "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Junwon6/BottomUp-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Junwon6/BottomUp-project/issues"
+  },
+  "homepage": "https://github.com/Junwon6/BottomUp-project#readme",
   "dependencies": {
-    "express": "~4.13.1",
-    "ejs": "~2.4.1"
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.15.2",
+    "connect-flash": "^0.1.1",
+    "ejs": "^2.5.2",
+    "express": "^4.14.0",
+    "express-session": "^1.14.1",
+    "method-override": "^2.3.6",
+    "mongoose": "^4.13.17",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
   }
 }
