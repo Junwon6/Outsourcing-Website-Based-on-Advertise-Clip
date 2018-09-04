@@ -4,10 +4,10 @@ const passport = require("../config/passport");
 
 // Home
 router.get("/", (req, res) => {
-    res.render("home/welcome");
+    res.render("home/page_main");
 });
 router.get("/about", (req, res) => {
-    res.render("home/about");
+    res.render("home/page_main");
 });
 
 // Login
