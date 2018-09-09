@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/index.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/register2.css" />
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="register2.js"></script>
+    <title>Cre-Ground</title>
+</head>
+<body>
+    <div id="white_space"></div>
+    <header>
+        <div id="logo"><a href="/"><img src="/img/creground_2.PNG" id="logo_img" alt="logo"></a></div>
+        <div id="local_camp">default</div>
+    </header>
+    <div class="왼쪽메뉴"> <!-- 왼쪽메뉴 -->
+        <ul>
+            <li><a href="/"><button>홈</button></a></li>
+            <li><a href="/view/register.html"><button>등록하기</button></a></li>
+        </ul>
+    </div>
+
+    <!-- 작성 폼 -->
+    <div class="작성폼">
+        <form id="frm" action="/member/infoSave" method="post" enctype="multipart/form-data">
+            <input id="id" name="id" type="hidden" value="2018"/>
+            
+            <div class="폼_내용">
+                <label class="required">제목</label>
+                <div class="input">
+                    <div class="input-type1">
+                        <input id="title" name="title" placeholder="제목이름 입니다." type="text" value=""/></div>
+                    </div>
+                </div>
+
+            <div class="폼_내용">
+                <label>내용 설명</label>
+                <div class="input">
+                    <div class="textarea-type1">
+                        <textarea id="description" name="description" placeholder="공모의 설명입니다."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="폼_내용">
+                <label class="required">공모 기간</label>
+                <div class="input">
+                    <div class="input-type1">
+                        <!-- 날짜 -->
+                            <div class="uk-section">
+                                    <div class="uk-container uk-container-center">
+                                        <form class="uk-form uk-form-stacked">
+                                            <div class="uk-form-row">
+                                                <label class="uk-form-label">From</label>
+                                                <input type="text" class="date-from">
+                                            </div>
+                                            <div class="uk-form-row">
+                                                <label class="uk-form-label">To</label>
+                                                <input type="text" class="date-to" disabled>
+                                            </div>
+                                        </form>
+                                
+                                    </div>
+                                </div>    
+                    </div>
+                </div>
+            </div>
+
+            <div class="폼_내용">
+                <label>보상방법</label>
+                <div class="input">
+                    <select id="memberType" name="memberType" style="width:190px">
+                        <option>상금</option>
+                        <option>상품</option>
+                        <option>상금+상품</option>
+                        <option>기타</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="폼_내용">
+                <label>참고자료</label>
+                <div class="input">
+                    <div class="input-type1">
+                        <input type="file" name="uploadFile" id="uploadFile" style="width:104px;height:54px;"/>                
+                    </div>
+                </div>
+            </div>
+            
+            <div class="폼_내용">
+                    <label>제품스폰서 가능여부</label>
+                    <div class="input">
+                        <div class="input-type1">
+                            <input type="checkbox" />    
+                        </div>
+                    </div>
+                </div>
+        </form>
+</div>
+
+
+
+
+    <footer></footer>
+</body>
+</html>
