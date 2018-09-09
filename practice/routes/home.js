@@ -4,10 +4,10 @@ const passport = require("../config/passport");
 
 // Home
 router.get("/", (req, res) => {
-    res.render("home/page_main");
+    res.render("home/index");
 });
 router.get("/about", (req, res) => {
-    res.render("home/page_main");
+    res.render("home/about");
 });
 
 // Login
@@ -24,7 +24,7 @@ router.get("/login", (req, res) => {
 // Post Login
 // login form에서 보내진 post request를 처리해 주는 route.
 router.post("/login",
-// 보내진 form의 validation을 위한 것으로 에러가 있으면 flash를 만들고 login view로 redirect.
+    // 보내진 form의 validation을 위한 것으로 에러가 있으면 flash를 만들고 login view로 redirect.
     (req, res, next) => {
         const errors = {};
         const isValid = true;

@@ -1,0 +1,231 @@
+/*
+* background
+*   white : #dce7eb
+*   grey  : #dfe9ec
+*   
+* font
+*   'Malgun Gothic', sans-serif;
+*
+*/
+
+html{
+    background-color : white;
+    font-family:'Malgun Gothic', sans-serif;
+    height : 100%;
+}
+body{
+    height : 100%;
+    width:100%;
+}
+.body_content{
+    background-color: #f2f2f2;
+}
+#white_space{
+    z-index:0;
+    height : 35px;
+    width : 100%;
+}
+header{
+    position : fixed;
+    top : 0;
+    left: 0;
+    right: 0;
+    z-index : 1200;
+    min-width:550px;
+    height : 50px;
+    box-shadow: 0 1px 0 rgba(54,80,114,0.15);
+    margin-bottom:0;
+    letter-spacing: -0.5px;
+    -webkit-font-smoothing: antialiased;
+    background-color: white;
+}
+#logo {
+    width : 200px;
+    word-wrap: break-word;
+    height : 50px;
+    
+}
+#logo_img{
+    margin-top : 10px;
+    margin-left : 50px;
+    display:block;
+    width: 140px;
+    height: 38px;
+    margin-right :65px;
+   
+}
+#local_camp{
+    white-space: nowrap;
+    height : 50px;
+    width : 100px;
+    border-left : solid 1px rgba(54,80,114,0.15); 
+    position : absolute;
+    left : 200px;
+    margin-left : 9px;
+    top : 0px;
+}
+ul{
+    list-style: none;
+}
+.왼쪽메뉴{
+    height : 100%;
+    width : 200px;
+    float : left;
+    background-color:  white;
+    z-index: 4;
+    position : fixed;
+}
+.왼쪽메뉴 ul li button{
+    outline:none;
+    height: 40px;
+    text-align: center;
+    width: 130px;
+    border-radius:40px;
+    background: #fff;
+    font-weight: bold;
+    border: 2px solid #fd8282;
+    letter-spacing:1px;
+    text-shadow:0;
+    size : 12px;
+    color:#fd8282;
+    cursor : pointer;
+    transition : all 0.25s ease;
+    margin-bottom : 10px;
+}
+.왼쪽메뉴 ul li button:hover{
+    color:white;
+    background: #fd8282;
+}
+.왼쪽메뉴 ul li button a{
+    font-family: 'Malgun Gothic', sans-serif;
+    color:#fd8282;
+    text-decoration:none;
+}
+.왼쪽메뉴 ul li button a:hover{
+    color:white;
+    background: #fd8282;
+    text-decoration:none;
+}
+.body_content{
+    position : absolute;
+    left : 200px;
+    top : 50px;
+}
+.문의내용광고{
+    border : solid 1px;
+    /**/
+    left : 200px;
+    height : 200px;
+    width : 400px;
+    margin : 10px;
+    position : relative;
+}
+.공모나열{
+    border: solid 1px;
+    /**/
+    max-width: 1600px;
+    overflow: hidden;
+    left : 250px;
+    height : 100%;
+}
+.카테고리{
+    overflow : hidden;
+    position: relative;
+    display: inline;
+}
+.카테고리 ul{
+    overflow : hidden;
+}
+.카테고리 li{
+    overflow: hidden;
+    display: inline;
+}
+.카테고리 ul li button{
+    height : 60px;
+    width : 60px;
+    outline:none;
+    text-align: center;
+    border-radius:10px;
+    background: #fff;
+    font-family: 'Malgun Gothic', sans-serif;
+    font-weight: bold;
+    border: 2px solid #fd8282;
+    color:#fd8282;
+    letter-spacing:1px;
+    text-shadow:0;
+    size : 10px;
+    cursor : pointer;
+    transition : all 0.25s ease;
+}
+.카테고리 ul li button:hover{
+    color:white;
+    background: #fd8282;
+    cursor : pointer;
+}
+.카테고리별_공모 ul{
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 20px;
+    display: block;
+}
+.카테고리별_공모 ul li{
+    position: relative;
+    display: inline-block;
+
+    overflow: hidden;
+    margin-top: 20px;
+    margin-left: 20px;
+    padding: 0;
+    text-align: -webkit-match-parent;
+
+}
+.아이템_한개_전체{
+    border : solid 1px;
+    width : auto;
+    max-width: 300px;
+    min-width: 300px;
+    height : 350px;
+    margin: 0px 0px 0px;
+    padding: 0px 0px 0;
+    position: static;
+}
+.아이템_이미지{
+    border : solid 1px;
+    margin : 10px;
+    width : 280px;
+    height : 200px;
+}
+.공모_이미지{
+    width:280px;
+    height : 200px;
+    padding: 0px;
+    margin : 0px;
+    position : absolute;
+}
+.아이템_내용{
+    display : inline;
+}
+.아이템_제목{
+    border : solid 1px;
+    float : left;
+    width : 280px;
+    margin : 10px;
+}
+.아이템_마감일{
+    border : solid 1px;
+    width : 140px;
+    float : left;
+    margin-left : 10px;
+}
+.아이템_인원{
+    border : solid 1px;
+    float : left;
+    margin-left : 5px;
+    width : 130px;
+}
+
+footer{
+    background-color:white;
+}

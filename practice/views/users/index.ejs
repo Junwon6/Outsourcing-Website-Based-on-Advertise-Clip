@@ -6,14 +6,15 @@
   <body>
     <% include ../partials/nav %>
 
-    <div class="container user user-index">
+    <div>
 
-      <div class="contentBox">
-        <h3 class="contentBoxTop">Users</h3>
-        <ul class="floats">
+      <div>
+        <h3>Users</h3>
+        <ul>
           <% if(users == null || users.length == 0){ %>
-            <div class="noData" colspan=100> There is no user yet.</div>
+            <div colspan=100> There is no user yet.</div>
           <% } %>
+          
           <% users.forEach(function(user) { %>
             <li>
               <a href="/users/<%= user.username %>"><%= user.username %></a>

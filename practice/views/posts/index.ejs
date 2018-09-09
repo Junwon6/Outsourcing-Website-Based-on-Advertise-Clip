@@ -1,56 +1,62 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <% include ../partials/head %>
-  </head>
-  <body>
-    <% include ../partials/nav %>
 
-    <div class="container post post-index">
-      <% include ./partials/header %>
+<head>
+  <% include ../partials/head %>
+</head>
 
-      <div class="buttons">
-        <% if(isAuthenticated){ %> <!--  new 버튼은 로그인된 경우에만 보임-->
-          <a class="btn btn-default" href="/posts/new">New</a>
+<body>
+  <% include ../partials/nav %>
+
+  <div>
+    <div>
+      <% if(isAuthenticated){ %>
+      <!--  new 버튼은 로그인된 경우에만 보임-->
+      <a href="/posts/new">New</a>
+      <% } %>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th class="title">Title</th>
+          <th class="author">Author</th>
+          <th class="date">Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if(posts == null || posts.length == 0){ %>
+        <tr>
+          <td class="noData" colspan=100> There is no data to show :( </td>
+        </tr>
         <% } %>
-      </div>
+        <% posts.forEach(function(post) { %>
+        <tr>
+          <td class="title">
+            <a href="/posts/<%= post._id %>">
+              <div class="ellipsis">
+                <%= post.title %>
+              </div>
+            </a>
+          </td>
 
-      <table class="table table-striped posts">
-        <thead>
-          <tr>
-            <th class="Number">No</th>
-            <th class="title">Title</th>
-            <th class="author">Author</th>
-            <th class="date">Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% if(posts == null || posts.length == 0){ %>
-            <tr>
-              <td class="noData" colspan=100> There is no data to show :( </td>
-            </tr>
-          <% } %>
-          <% posts.forEach(function(post) { %>
-            <tr>
-              <td class="title">
-                <a href="/posts/<%= post._id %>"><div class="ellipsis"><%= post.title %></div></a>
-              </td>
-              <td class="title">
-                <a href="/posts/<%= post._id %>"><div class="ellipsis"><%= post.title %></div></a>
-              </td>
-              <td class="author">
-                <!-- author가 있는 경우 author의 username을 표시 -->
-                <div class="ellipsis"><%= post.author ? post.author.username : "" %></div>
-                <!-- ellipsis ext의 내용이 width보다 긴 경우 긴 부분을 잘라내고 "..."을 추가 -->
-              </td>
-              <td class="date">
-                <%= post.createdDate %>
-              </td>
-            </tr>
-          <% }) %>
-        </tbody>
-      </table>
+          <td class="author">
+            <!-- author가 있는 경우 author의 username을 표시 -->
+            <div class="ellipsis">
+              <%= post.author ? post.author.username : "" %>
+            </div>
+            <!-- ellipsis ext의 내용이 width보다 긴 경우 긴 부분을 잘라내고 "..."을 추가 -->
+          </td>
 
-    </div>  <!-- container end -->
-  </body>
+          <td class="date">
+            <%= post.createdDate %>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+
+  </div> <!-- container end -->
+</body>
+
 </html>

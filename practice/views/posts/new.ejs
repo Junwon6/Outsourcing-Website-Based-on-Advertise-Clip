@@ -6,42 +6,43 @@
   <body>
     <% include ../partials/nav %>
 
-    <div class="container post post-new">
-      <% include ./partials/header %>
-
-      <div class="buttons">
-        <a class="btn btn-default" href="/posts">Back</a>
+    <div>
+      <div>
+        <a href="/posts">Back</a>
       </div>
 
-      <form class="post-form form-horizontal" action="/posts" method="post">
-        <div class="contentBox">
-          <h3 class="contentBoxTop">New Post</h3>
+      <form action="/posts" method="post">
+        <div>
+          <h3>New Post</h3>
           <fieldset>
-            <div class="form-group <%= (errors.title)?'has-error':'' %>">
-              <label for="title" class="col-sm-2 control-label">Title</label>
-              <div class="col-sm-10">
-                <input class="form-control" type="text" id="title" name="title" value="<%= post.title %>">
+
+            <div>
+              <label for="title">Title</label>
+              <div>
+                <input type="text" id="title" name="title" value="<%= post.title %>">
                 <% if(errors.title){ %>
-                  <span class="help-block"><%= errors.title.message %></span>
+                  <span><%= errors.title.message %></span>
                 <% } %>
               </div>
             </div>
-            <div class="form-group <%= (errors.body)?'has-error':'' %>">
-              <label for="body" class="col-sm-2 control-label">Body</label>
-              <div class="col-sm-10">
-                <textarea class="form-control" id="body" name="body" rows="5"><%= post.body %></textarea>
+
+            <div>
+              <label for="body" >Body</label>
+              <div>
+                <textarea id="body" name="body" rows="5"><%= post.body %></textarea>
                 <% if(errors.body){ %>
-                  <span class="help-block"><%= errors.body.message %></span>
+                  <span><%= errors.body.message %></span>
                 <% } %>
               </div>
             </div>
+
           </fieldset>
         </div>
-        <div class="buttons">
-          <button type="submit" class="btn btn-default">Submit</button>
+        <div>
+          <button type="submit">Submit</button>
         </div>
         <% if(errors.unhandled){ %>
-          <div class="alert alert-danger">
+          <div>
             <%= errors.unhandled %>
           </div>
         <% } %>

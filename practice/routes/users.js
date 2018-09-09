@@ -45,9 +45,7 @@ router.post("/", (req, res) => {
 router.get("/:username", util.isLoggedin, (req, res) => {
   User.findOne({username:req.params.username}, (err, user) => {
     if(err) return res.json(err);
-    res.render("users/show", { 
-      user 
-    });
+    res.render("users/show", { user });
   });
 });
 

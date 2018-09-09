@@ -12,7 +12,6 @@ mongoose.connect(process.env.MONGO_DB, {});
 const db = mongoose.connection;
 db.once("open", () => {
     console.log("DB connected");
-    console.log("process.env.MONGO_DB: ", process.env.MONGO_DB);
 });
 db.on("error", (err) => {
     console.log("process.env.MONGO_DB: ", process.env.MONGO_DB);
@@ -40,6 +39,7 @@ app.use(bodyParser.urlencoded({ // urlencoded data를 분석
 //객체 안에 객체를 파싱할 수 있게하려면 true.
 
 app.use(methodOverride("_method"));
+
 // req.flash(문자열, 저장할_값) 의 형태로 저장할_값을 문자열에 저장.
 // req.flash(문자열) 인 경우 해당 문자열에 저장된 값들을 배열로 불러옴. 
 // 저장된 값이 없다면 빈 배열([])을 return.
@@ -68,8 +68,9 @@ app.use((req, res, next) => {
 app.use("/", require("./routes/home"));
 app.use("/posts", require("./routes/posts"));
 app.use("/users", require("./routes/users"));
+app.use("/registers", require("./routes/registers"));
 
 // Port setting ...
-app.listen(3000, () => {
+app.listen(5000, () => {
     console.log("server on!");
 });
