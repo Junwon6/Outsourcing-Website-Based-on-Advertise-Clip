@@ -20,30 +20,21 @@
             <div>
               <label for="title">Title</label>
               <div >
-                <input type="text" id="title" name="title" value="<%= register.title %>">
-                <% if(errors.title){ %>
-                  <span ><%= errors.title.message %></span>
-                <% } %>
+                <input type="text" id="title" name="title" value="">
               </div>
             </div>
 
             <div>
               <label for="sub_title">Sub_Title</label>
               <div >
-                <input type="text" id="sub_title" name="sub_title" value="<%= register.sub_title %>">
-                <% if(errors.sub_title){ %>
-                  <span ><%= errors.sub_title.message %></span>
-                <% } %>
+                <input type="text" id="sub_title" name="sub_title" value="">
               </div>
             </div>
 
             <div>
               <label for="required_people">Required_People</label>
               <div >
-                <input type="text" id="required_people" name="required_people" value="<%= register.required_people %>">
-                <% if(errors.required_people){ %>
-                  <span ><%= errors.required_people.message %></span>
-                <% } %>
+                <input type="text" id="required_people" name="required_people" value="">
               </div>
             </div>
             
@@ -51,9 +42,6 @@
               <label for="budget">Budget</label>
               <div >
                 <input type="text" id="budget" name="budget" value="">
-                <% if(errors.budget){ %>
-                  <span ><%= errors.budget.message %></span>
-                <% } %>
               </div>
             </div>
 
@@ -61,19 +49,13 @@
               <label for="deadline">Deadline</label>
               <div >
                 <input type="text" id="deadline" name="deadline" value="">
-                <% if(errors.deadline){ %>
-                  <span ><%= errors.deadline.message %></span>
-                <% } %>
               </div>
             </div>
 
             <div>
               <label for="body">Body</label>
               <div>
-                <textarea id="body" name="body" rows="5"><%= register.body %></textarea>
-                <% if(errors.body){ %>
-                  <span><%= errors.body.message %></span>
-                <% } %>
+                <textarea id="body" name="body" rows="5"></textarea>
               </div>
             </div>
 
@@ -84,12 +66,6 @@
         <div>
           <button type="submit">Submit</button>
         </div>
-
-        <% if(errors.unhandled){ %>
-          <div>
-            <%= errors.unhandled %>
-          </div>
-        <% } %>
 
       </form>
 

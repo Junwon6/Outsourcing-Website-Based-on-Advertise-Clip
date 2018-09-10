@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <% include ../partials/head %>
 </head>
@@ -30,7 +29,7 @@
           <td class="noData" colspan=100> There is no data to show :( </td>
         </tr>
         <% } %>
-        <% registers.forEach(function(post) { %>
+        <% registers.forEach(function(register) { %>
         <tr>
           <td class="title">
             <a href="/registers/<%= register._id %>">
