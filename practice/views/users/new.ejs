@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <body>
+    <% include ../partials/nav %>
+
+    <div>
+      
+      <form action="/users" method="post">
+        <div >
+          <h3 >New User</h3>
+
+          <fieldset>
+            <div>
+              <label for="username">Username*</label>
+              <div >
+                <input type="text" id="username" name="username" value="<%= user.username %>">
+                <% if(errors.username){ %>
+                  <span ><%= errors.username.message %></span>
+                <% } %>
+              </div>
+            </div>
+
+            <div>
+              <label for="name" >Name*</label>
+              <div >
+                <input type="text" id="name" name="name" value="<%= user.name %>">
+                <% if(errors.name){ %>
+                  <span ><%= errors.name.message %></span>
+                <% } %>
+              </div>
+            </div>
+
+            <div>
+              <label for="email" >Email</label>
+              <div >
+                <input type="text" id="email" name="email" value="<%= user.email %>">
+                <% if(errors.email){ %>
+                  <span ><%= errors.email.message %></span>
+                <% } %>
+              </div>
+            </div>
+
+            <div>
+              <label for="phone_num" >Phone</label>
+              <div >
+                <input type="text" id="phone_num" name="phone_num" value="<%= user.phone_num %>">
+                <% if(errors.phone_num){ %>
+                  <span ><%= errors.phone_num.message %></span>
+                <% } %>
+              </div>
+            </div>
+            
+            <div>
+              <label for="password" >Password*</label>
+              <div >
+                <input  type="password" id="password" name="password" value="">
+                <% if(errors.password){ %>
+                  <span ><%= errors.password.message %></span>
+                <% } %>
+              </div>
+            </div>
+
+            <div>
+              <label for="passwordConfirmation" >Confirm*</label>
+              <div >
+                <input  type="password" id="passwordConfirmation" name="passwordConfirmation" value="">
+                <% if(errors.passwordConfirmation){ %>
+                  <span ><%= errors.passwordConfirmation.message %></span>
+                <% } %>
+              </div>
+            </div>
+
+            <p>
+              <small>*Required</small>
+            </p>
+
+          </fieldset>
+        </div>
+        <div>
+          <button type="submit">Submit</button>
+        </div>
+        
+        <% if(errors.unhandled){ %>
+          <div >
+            <%= errors.unhandled %>
+          </div>
+        <% } %>
+      </form>
+
+    </div> <!-- container end -->
+  </body>
+</html>

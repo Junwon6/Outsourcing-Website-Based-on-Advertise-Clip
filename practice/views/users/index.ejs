@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <body>
+    <% include ../partials/nav %>
+
+    <div>
+
+      <div>
+        <h3>Users</h3>
+        <ul>
+          <% if(users == null || users.length == 0){ %>
+            <div colspan=100> There is no user yet.</div>
+          <% } %>
+          
+          <% users.forEach(function(user) { %>
+            <li>
+              <a href="/users/<%= user.username %>"><%= user.username %></a>
+            </li>
+          <% }) %>
+        </ul>
+      </div>
+
+    </div> <!-- container end -->
+  </body>
+</html>

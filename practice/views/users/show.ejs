@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <body>
+    <% include ../partials/nav %>
+
+    <div>
+
+      <div>
+        <a href="/users">Back</a>
+<!-- 로그인이 된 상태이고, 해당 user id(user.id)와 현재 로그인된 사용자의 id(currentUser.id)가 일치하는 경우에만 edit을 보여줌 -->
+        <% if(isAuthenticated && currentUser.id == user.id){ %>
+          <a href="/users/<%= user.username %>/edit">Edit</a>
+        <% } %>
+      </div>
+
+      <form action="/users" method="post">
+        <div>
+          <h3 ><%= user.username %></h3>
+
+          <fieldset disabled>
+            
+            <div>
+              <label for="name" >Name</label>
+              <div>
+                <input type="text" id="name" name="name" value="<%= user.name %>">
+              </div>
+            </div>
+
+            <div>
+              <label for="email" >Email</label>
+              <div>
+                <input type="text" id="email" name="email" value="<%= user.email %>">
+              </div>
+            </div>
+
+            <div>
+              <label for="phone_num">Phone</label>
+              <div>
+                <input type="text" id="phone_num" name="phone_num" value="<%= user.phone_num %>">
+              </div>
+            </div>
+
+          </fieldset>
+        </div>
+      </form>
+
+    </div> <!-- container end -->
+  </body>
+</html>
