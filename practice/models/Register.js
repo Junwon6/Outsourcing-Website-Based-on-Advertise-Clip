@@ -18,34 +18,19 @@ var registerSchema = mongoose.Schema({
         ref: "user",
         required: true
     },
-    finished: {
-        type: Boolean,
-        required: true
-    },
-    join_people: {
-        type: Number,
-        required: true
-    },
     required_people: {
         type: Number,
         required: true
     },
     budget: {
-        type: Number,
-        
+        type: Number
     },
     deadline: {
-        type: Number,
-        
+        type: Number
     },
     startline: {
         type: Date,
-        default: Date.now,
-        required: true
-    },
-    require_condition: {
-        type: String,
-        require: true
+        default: Date.now
     },
     body: {
         type: String,
@@ -60,22 +45,12 @@ var registerSchema = mongoose.Schema({
 // virtuals
 registerSchema.virtual("createdDate")
     .get(function () {
-        return util.getDate(this.createdAt);
+        return util.getDate(this.startline);
     });
 
 registerSchema.virtual("createdTime")
     .get(function () {
-        return util.getTime(this.createdAt);
-    });
-
-registerSchema.virtual("updatedDate")
-    .get(function () {
-        return util.getDate(this.updatedAt);
-    });
-
-registerSchema.virtual("updatedTime")
-    .get(function () {
-        return util.getTime(this.updatedAt);
+        return util.getTime(this.startline);
     });
 
 // model & export
