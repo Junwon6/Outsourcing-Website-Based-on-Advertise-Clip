@@ -1,0 +1,57 @@
+<!-- views/home/login.ejs -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <body>
+    <% include ../partials/nav %>
+
+    <div>
+
+      <form action="/login" method="post">
+        
+        <div>
+          
+          <h3>Login</h3>
+          
+          <fieldset>
+            
+            <div>
+              <label for="username">Username</label>
+              <div>
+                <input type="text" id="username" name="username" value="<%= username %>">
+                <% if(errors.username){ %>
+                  <span><%= errors.username %></span>
+                <% } %>
+              </div>
+            </div>
+
+            <div>
+              <label for="password">Password</label>
+              <div>
+                <input type="password" id="password" name="password" value="">
+                <% if(errors.password){ %>
+                  <span><%= errors.password %></span>
+                <% } %>
+              </div>
+            </div>
+
+            <% if(errors.login){ %>
+              <div>
+                <span><%= errors.login %></span>
+              </div>
+            <% } %>
+
+          </fieldset>
+        </div>
+
+        <div>
+          <input type="submit" value="Submit">
+        </div>
+
+      </form>
+
+    </div> <!-- container end -->
+  </body>
+</html>

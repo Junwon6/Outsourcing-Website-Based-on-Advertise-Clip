@@ -47,7 +47,7 @@ router.post("/login",
     },
     // passport local strategy를 호출해서 authentication(로그인) 을 진행
     passport.authenticate("local-login", {
-        successRedirect: "/posts",
+        successRedirect: "/",
         failureRedirect: "/login"
     }));
 

@@ -1,0 +1,46 @@
+<!-- views/posts/new.ejs -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ../partials/head %>
+</head>
+
+<body>
+    <% include ../partials/nav %>
+
+    <div>
+        <% include ./partials/header %>
+
+        <div>
+            <a href="/posts">Back</a>
+        </div>
+
+        <form action="/posts" method="post">
+            <div>
+                <h3>New Post</h3>
+                <fieldset>
+                    <div>
+                        <label for="title">Title</label>
+                        <div>
+                            <input type="text" id="title" name="title" value="">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="body" >Body</label>
+                        <div>
+                            <textarea id="body" name="body" rows="5"></textarea>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="buttons">
+                <button type="submit" class="btn btn-default">Submit</button>
+            </div>
+        </form>
+
+    </div> <!-- container end -->
+</body>
+
+</html>

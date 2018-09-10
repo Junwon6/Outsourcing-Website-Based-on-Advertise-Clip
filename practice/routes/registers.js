@@ -37,7 +37,9 @@ router.post("/", util.isLoggedin, (req, res) => {
             req.flash("register", req.body);
             req.flash("errors", util.parseError(err));
             return res.redirect("/registers/new");
+            console.log("10");
         }
+
         res.render("/registers");
         console.log("10");
     });
