@@ -62,8 +62,8 @@
 
             <div>
               <label for="deadline">Deadline</label>
-              <div >
-                <input type="text" id="deadline" name="deadline" value="<%= register.deadline %>">
+              <div>
+                <input type="date" id="deadline" name="deadline" value="<%= register.deadline %>">
                 <% if(errors.deadline){ %>
                   <span ><%= errors.deadline.message %></span>
                 <% } %>

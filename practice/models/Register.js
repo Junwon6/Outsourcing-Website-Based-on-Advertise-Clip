@@ -26,7 +26,7 @@ var registerSchema = mongoose.Schema({
         type: Number
     },
     deadline: {
-        type: Number
+        type: Date
     },
     startline: {
         type: Date,
