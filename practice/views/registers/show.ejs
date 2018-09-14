@@ -27,13 +27,22 @@
           <div>
             <div>
               <div>
-                <span>Author</span> 
+                <span>작성자</span> 
                 : <%= register.author ? register.author.username : "" %>
               </div>
               
               <div>
-                <span>Created</span> 
+                <span>작성일</span> 
                 : <%= register.createdDate %> <%= register.createdTime %>
+              </div>
+              
+              <!-- 이미지 삽입 -->
+              <div>
+                : <%= register.img %>
+              </div>
+              <div>
+                <span> 마감일 </span>
+                : <%= register.deadline %>
               </div>
               
               <% if(register.updatedAt) { %>

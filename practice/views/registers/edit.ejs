@@ -21,7 +21,7 @@
           
           <fieldset>
             <div>
-              <label for="title">Title</label>
+              <label for="title">제목</label>
               <div >
                 <input type="text" id="title" name="title" value="<%= register.title %>">
                 <% if(errors.title){ %>
@@ -31,7 +31,7 @@
             </div>
 
             <div>
-              <label for="sub_title">Sub_Title</label>
+              <label for="sub_title">부제목</label>
               <div >
                 <input type="text" id="sub_title" name="sub_title" value="<%= register.sub_title %>">
                 <% if(errors.sub_title){ %>
@@ -41,7 +41,17 @@
             </div>
 
             <div>
-              <label for="required_people">Required_People</label>
+              <label for="budget">첨부 이미지</label>
+              <div >
+                <input type="text" id="img" name="img" value="<%= register.img %>">
+                <% if(errors.img){ %>
+                  <span ><%= errors.img.message %></span>
+                <% } %>
+              </div>
+            </div>
+            
+            <div>
+              <label for="required_people">필요 크리에이터 수</label>
               <div >
                 <input type="text" id="required_people" name="required_people" value="<%= register.required_people %>">
                 <% if(errors.required_people){ %>
@@ -51,7 +61,7 @@
             </div>
             
             <div>
-              <label for="budget">Budget</label>
+              <label for="budget">예산</label>
               <div >
                 <input type="text" id="budget" name="budget" value="<%= register.budget %>">
                 <% if(errors.budget){ %>
@@ -61,7 +71,7 @@
             </div>
 
             <div>
-              <label for="deadline">Deadline</label>
+              <label for="deadline">마감일</label>
               <div>
                 <input type="date" id="deadline" name="deadline" value="<%= register.deadline %>">
                 <% if(errors.deadline){ %>
@@ -71,7 +81,7 @@
             </div>
 
             <div>
-              <label for="body">Body</label>
+              <label for="body">내용</label>
               <div>
                 <textarea id="body" name="body" rows="5"><%= register.body %></textarea>
                 <% if(errors.body){ %>
