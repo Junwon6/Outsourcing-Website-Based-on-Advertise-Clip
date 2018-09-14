@@ -103,7 +103,7 @@ router.put("/:id", util.isLoggedin, checkPermission, (req, res) => {
 // destroy
 // util.isLoggedin를 사용해서 로그인이 된 경우에만 다음 callback을 호출
 router.delete("/:id", util.isLoggedin, checkPermission, (req, res) => {
-    register.remove({
+    Register.remove({
         _id: req.params.id
     }, (err) => {
         if (err) return res.json(err);
@@ -117,7 +117,7 @@ module.exports = router;
 // 해당 게시물에 기록된 author와 로그인된 user.id를 비교해서 같은 경우 통과.
 // 만약 다르다면 util.noPermission함수를 호출.
 function checkPermission(req, res, next) {
-    register.findOne({
+    Register.findOne({
         _id: req.params.id
     }, (err, register) => {
         if (err)
