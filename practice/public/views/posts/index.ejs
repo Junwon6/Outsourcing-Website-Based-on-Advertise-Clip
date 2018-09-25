@@ -7,12 +7,11 @@
 
 <body>
   <% include ../partials/nav %>
-
   <div>
     <div>
       <% if(isAuthenticated){ %>
       <!--  new 버튼은 로그인된 경우에만 보임-->
-      <a href="/posts/new">New</a>
+      <a href="/posts/new" id="btn_new">New</a>
       <% } %>
     </div>
 
