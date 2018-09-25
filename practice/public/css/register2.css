@@ -1,8 +1,49 @@
-.작성폼{
-    position : absolute;
-    left : 300px;
-    top : 100px;
+.post_1{
+    border : 1px solid;
+    position : relative;
+    margin-left : 200px;
+    
 }
-.폼_내용{
-    margin-top : 10px;
+
+.post_2{
+    border : 1px solid;
+    width : 80%;
 }
+.post_3{
+    border : 1px solid;
+    width : 80%;
+    
+    display: inline-block;
+}
+.post_4{
+    border : 1px solid;
+    
+}
+
+.post_img{
+    display: inline-block;
+    border : 1px solid;
+    margin : 20px;
+    width : 250px;
+    height : 200px;
+}
+.post_title{
+    display: inline-block;
+    font-size : 20px;
+    font-weight : bold;
+}
+.post_subtitle{
+    display: inline;
+}
+.post_required_people{
+    display: inline-block;
+}
+ .post_budget{
+    display: inline-block;
+ }
+ .post_startline
+ .post_author
+ .post_createdDate
+
+ .post_deadline
+ .post_body   
