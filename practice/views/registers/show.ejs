@@ -6,7 +6,9 @@
   </head>
   <body>
     <% include ../partials/nav %>
-
+    <div class="왼쪽공간">
+      this is left area
+    </div>
     <div>
       <% include ./partials/header %>
 
@@ -22,44 +24,29 @@
       </div>
 
       <div>
-        <h3><%= register.title %></h3>
         <div>
           <div>
             <div>
-              <div>
-                <span>작성자</span> 
-                : <%= register.author ? register.author.username : "" %>
-              </div>
+              <div>title : <%= register.title %></div>
+              <div>sub_title : <%= register.sub_title %></div>
+              <div>required_people : <%= register.required_people %></div>
+              <div>budget : <%= register.budget %></div>
+              <div>startline : <%= register.startline %></div>    
+              <div>작성자 : <%= register.author ? register.author.username : "" %></div>
+              <div>작성일 : <%= register.createdDate %> <%= register.createdTime %></div>
+              <div>이미지 : <%= register.img %></div>
+              <div>마감일 : <%= register.deadline %></div>
+              <div>내용 : <%= register.body %></div>
               
-              <div>
-                <span>작성일</span> 
-                : <%= register.createdDate %> <%= register.createdTime %>
-              </div>
-              
-              <!-- 이미지 삽입 -->
-              <div>
-                : <%= register.img %>
-              </div>
-              <div>
-                <span> 마감일 </span>
-                : <%= register.deadline %>
-              </div>
-              
+              <!-- 업데이트 시 적용 -->
               <% if(register.updatedAt) { %>
-                <div>
-                  <span>Updated</span> 
-                  : <%= register.updatedDate %> <%= register.updatedTime %>
-                </div>
+                <div>Updated : <%= register.updatedDate %> <%= register.updatedTime %></div>
               <% } %>
 
             </div> <!-- post-info end -->
           </div> <!-- col end-->
-          <div>
-            <div><%= register.body %></div>
-          </div> <!-- col end-->
         </div> <!-- row end -->
       </div> <!-- post-container end -->
-
     </div> <!-- container end -->
   </body>
 </html>
