@@ -1,10 +1,19 @@
 const express = require("express");
 const router = express.Router();
 const passport = require("../config/passport");
+const Register = require("../models/Register");
 
 // Home
 router.get("/", (req, res) => {
-    res.render("home/index");
+
+    Register.find({})
+        .sort("-createdAt")
+        .exec((err, registers) => {
+            if (err) return res.json(err);
+            res.render("home/index", {
+                registers: registers
+            });
+        });
 });
 router.get("/about", (req, res) => {
     res.render("home/about");
