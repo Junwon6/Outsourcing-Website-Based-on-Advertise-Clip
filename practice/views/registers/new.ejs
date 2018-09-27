@@ -5,9 +5,11 @@
   </head>
   <body>
     <% include ../partials/nav %>
-
+    <div class="왼쪽공간">
+        this is left area
+    </div>
+    
     <div>
-
       <div>
         <a href="/registers">Back</a>
       </div>
@@ -47,7 +49,7 @@
             <div>
               <label for="budget">예산</label>
               <div >
-                <input type="text" id="budget" name="budget" value="">
+                <input type="number" id="budget" name="budget" step="100000" />
               </div>
             </div>
 
