@@ -1,0 +1,44 @@
+.아이템_한개_전체{
+    border : solid 1px;
+    width : auto;
+    max-width: 300px;
+    min-width: 300px;
+    height : 350px;
+    margin: 0px 0px 0px;
+    padding: 0px 0px 0;
+    position: static;
+}
+.아이템_이미지{
+    border : solid 1px;
+    margin : 10px;
+    width : 280px;
+    height : 200px;
+}
+.공모_이미지{
+    width:280px;
+    height : 200px;
+    padding: 0px;
+    margin : 0px;
+    position : absolute;
+}
+.아이템_내용{
+    display : inline;
+}
+.아이템_제목{
+    border : solid 1px;
+    float : left;
+    width : 280px;
+    margin : 10px;
+}
+.아이템_마감일{
+    border : solid 1px;
+    width : 140px;
+    float : left;
+    margin-left : 10px;
+}
+.아이템_인원{
+    border : solid 1px;
+    float : left;
+    margin-left : 5px;
+    width : 130px;
+}

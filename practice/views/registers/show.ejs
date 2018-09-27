@@ -12,35 +12,36 @@
     <div>
       <% include ./partials/header %>
 
-      <div>
-        <a href="/registers">Back</a>
+      <div class="btn_all">
+        <a href="/registers"><button id="btn">Back</button></a>
         <!-- 로그인이 된 상태이고, 게시물의 작성자 id(post.author.id)와 현재 로그인된 사용자의 id(currentUser.id)가 일치하는 경우에만 edit, delete을 보여줌 -->
         <% if(isAuthenticated && register.author && currentUser.id == register.author.id){ %>
-          <a href="/registers/<%= register._id %>/edit">Edit</a>
+          
           <form action="/registers/<%= register._id %>?_method=delete" method="post">
-            <a href="#" onclick="confirm('Do you want to delete this?')?this.parentElement.submit():null;">Delete</a>
+            <a href="#" onclick="confirm('Do you want to delete this?')?this.parentElement.submit():null;"><button id="btn">Delete</button></a>
           </form>
+          <a href="/registers/<%= register._id %>/edit"><button id="btn">Edit</button></a>
         <% } %>
       </div>
 
-      <div>
-        <div>
-          <div>
-            <div>
-              <div>title : <%= register.title %></div>
-              <div>sub_title : <%= register.sub_title %></div>
-              <div>required_people : <%= register.required_people %></div>
-              <div>budget : <%= register.budget %></div>
-              <div>startline : <%= register.startline %></div>    
-              <div>작성자 : <%= register.author ? register.author.username : "" %></div>
-              <div>작성일 : <%= register.createdDate %> <%= register.createdTime %></div>
-              <div>이미지 : <%= register.img %></div>
-              <div>마감일 : <%= register.deadline %></div>
-              <div>내용 : <%= register.body %></div>
+      <div class="post_1">
+        <div class="post_2">
+          <div class="post_3">
+            <div class="post_4">
+              <div class="post_img">이미지 : <%= register.img %></div>
+              <div class="post_title">title : <%= register.title %></div><br>
+              <div class="post_subtitle">sub_title : <%= register.sub_title %></div>
+              <div class="post_required_people">required_people : <%= register.required_people %></div>
+              <div class="post_budget">budget : <%= register.budget %></div>
+              <div class="post_startline">startline : <%= register.startline %></div>    
+              <div class="post_author">작성자 : <%= register.author ? register.author.username : "" %></div>
+              <div class="post_createdDate">작성일 : <%= register.createdDate %> <%= register.createdTime %></div>
+              <div class="post_deadline">마감일 : <%= register.deadline %></div>
+              <div class="post_body">내용 : <%= register.body %></div>
               
               <!-- 업데이트 시 적용 -->
               <% if(register.updatedAt) { %>
-                <div>Updated : <%= register.updatedDate %> <%= register.updatedTime %></div>
+                <div class="post_updated">Updated : <%= register.updatedDate %> <%= register.updatedTime %></div>
               <% } %>
 
             </div> <!-- post-info end -->

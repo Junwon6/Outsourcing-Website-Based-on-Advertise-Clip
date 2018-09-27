@@ -1,10 +1,33 @@
+.btn_all{
+    display : block;
+}
+#btn{
+    outline:none;
+    height: 40px;
+    text-align: center;
+    width: 80px;
+    border-radius:40px;
+    background: #fff;
+    font-weight: bold;
+    border: 2px solid #fd8282;
+    letter-spacing:1px;
+    text-shadow:0;
+    size : 12px;
+    color:#fd8282;
+    cursor : pointer;
+    transition : all 0.25s ease;
+    margin-bottom : 10px;
+}
+#btn:hover{
+    background: #fd8282;
+    color : white;
+}
+
 .post_1{
     border : 1px solid;
     position : relative;
-    margin-left : 200px;
-    
+    margin-left : 200px;   
 }
-
 .post_2{
     border : 1px solid;
     width : 80%;
@@ -19,7 +42,6 @@
     border : 1px solid;
     
 }
-
 .post_img{
     display: inline-block;
     border : 1px solid;
@@ -46,4 +68,4 @@
  .post_createdDate
 
  .post_deadline
- .post_body   
+ .post_body
