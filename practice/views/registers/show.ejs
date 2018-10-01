@@ -28,10 +28,14 @@
         <div class="box3">
           <div class="box2"><%= register.required_people %>명</div>
           <div class="box2"><%= register.budget %>원</div>
-          <div class="box2">D - <%= Math.floor((register.deadline - (new Date())) / (1000 * 60 * 60 * 24)) %></div>
+          <% if ((register.deadline - (new Date())) < 0) { %>
+            <div class="box2">마감</div>
+          <% } else {%>
+            <div class="box2">D - <%= Math.floor((register.deadline - (new Date())) / (1000 * 60 * 60 * 24)) %></div>
+          <% } %>
         </div>
         <div class="">내용 : <%= register.body %></div>
-        <% if(isAuthenticated &&currentUser.id !=register.author.id){ %>
+        <% if(isAuthenticated && currentUser.id !=register.author.id){ %>
             
             <input type="checkbox" id="참여하기">참여하기</input>
             
