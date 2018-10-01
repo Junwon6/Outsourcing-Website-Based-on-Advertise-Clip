@@ -1,44 +1,73 @@
-.아이템_한개_전체{
-    border : solid 1px;
-    width : auto;
+.body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #EFF3F7;
+    height: 100%;
+}
+
+.아이템_한개_전체 {
+    border-radius: 1em;
     max-width: 300px;
     min-width: 300px;
-    height : 350px;
+    height: 200px;
     margin: 0px 0px 0px;
     padding: 0px 0px 0;
     position: static;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    text-overflow: ellipsis;
+    padding: 0 20px;
+    box-shadow: 0 8px 38px rgba(133, 133, 133, 0.3), 0 5px 12px rgba(133, 133, 133, 0.22);
 }
-.아이템_이미지{
-    border : solid 1px;
-    margin : 10px;
-    width : 280px;
-    height : 200px;
-}
-.공모_이미지{
-    width:280px;
-    height : 200px;
+
+.공모_이미지 {
+    width: 280px;
+    height: 200px;
     padding: 0px;
-    margin : 0px;
-    position : absolute;
+    margin: 0px;
+    position: absolute;
 }
-.아이템_내용{
-    display : inline;
+
+.아이템_내용 {
+    display: inline;
 }
-.아이템_제목{
-    border : solid 1px;
-    float : left;
-    width : 280px;
-    margin : 10px;
+
+.아이템_제목 {
+    border-radius: 0.4em;
+    float: left;
+    width: 280px;
+    margin: 10px;
+    font-size: 20px;
+    font-weight: 600;
 }
-.아이템_마감일{
-    border : solid 1px;
-    width : 140px;
-    float : left;
-    margin-left : 10px;
+
+.아이템_회사명 {
+    border: solid 1px gray;
+    border-radius: 0.4em;
+    width: 140px;
+    height: 30px;
+    float: left;
+    margin: 10px;
 }
-.아이템_인원{
-    border : solid 1px;
-    float : left;
-    margin-left : 5px;
-    width : 130px;
+
+.아이템_마감일 {
+    border: solid 1px gray;
+    border-radius: 0.4em;
+    width: 140px;
+    float: left;
+    margin-left: 10px;
+}
+
+.아이템_인원 {
+    border: solid 1px gray;
+    border-radius: 0.4em;
+    float: left;
+    margin-left: 5px;
+    width: 100px;
+    margin-top: 40px;
 }
