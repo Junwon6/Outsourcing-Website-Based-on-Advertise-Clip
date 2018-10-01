@@ -24,7 +24,7 @@
                 <div class="아이템_이미지">아이템이미지</div>
                 <div class="아이템_내용">
                     <div class="아이템_제목"><a href="/registers/<%= register._id %>"><%= register.title %></a></div>
-                    <div class="아이템_마감일"><%= register.deadline %></div>
+                    <div class="아이템_마감일"><%= register.deadline.toLocaleDateString() %></div>
                     <div class="아이템_인원"><%= register.required_people %></div>
                 </div>
             </div>
