@@ -18,21 +18,6 @@ var registerSchema = mongoose.Schema({
         ref: "user",
         required: true
     },
-    /**
-     * 추가된 부분
-     * 이미지가 저장될 경로를 찾아서
-     * var imgPath = '/path/yourimage.png';
-     * 이런식으로 받아준다음 버퍼에 넣어야할듯
-     * 근데 그거를 잘 모르겠음
-     */
-    img : {
-        data: Buffer,
-        contentType: String
-    },
-    /**
-     * 
-     */
-
     required_people: {
         type: Number,
         required: true
