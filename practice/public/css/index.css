@@ -1,3 +1,4 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css); 
 /*
 * background
 *   white : #dce7eb
@@ -9,7 +10,7 @@
 */
 html{
     background-color : white;
-    font-family:'Malgun Gothic', sans-serif;
+    font-family: "Noto Sans KR", sans-serif;
     height : 100%;
 }
 body{
@@ -17,8 +18,9 @@ body{
     width:100%;
 }
 #home_img{
-    width:90%;
+    width:1100px;
     height : 600px;
+    position: absolute;
 }
 .body_content{
     background-color: #f2f2f2;
@@ -42,6 +44,7 @@ header{
     -webkit-font-smoothing: antialiased;
     background-color: white;
 }
+/*
 #logo {
     width : 200px;
     word-wrap: break-word;
@@ -67,9 +70,46 @@ header{
     margin-left : 9px;
     top : 0px;
 }
+*/
 ul{
     list-style: none;
 }
+#home_register{
+    height : 70px;
+    width : 160px;
+    outline:none;
+    text-align: center;
+    border-radius:10px;
+    background: #fff;
+    border: 2px solid #fd8282;
+    color:black;
+    letter-spacing:1px;
+    text-shadow:0;
+    size : 10px;
+    cursor : pointer;
+    transition : all 0.25s ease;
+    position : absolute;
+    top:300px;
+    left : 195px;
+    font-family: "Noto Sans KR", sans-serif;
+}
+#home_register:hover{
+    border-color:yellowgreen;
+}
+#btn_span{
+    font-weight : bold;
+    font-size : 20px;
+    color : #fd8282;
+}
+#btn_span_camp{
+    color : black;
+}
+.body_content{
+    position : absolute;
+    left : 200px;
+    top : 50px;
+}
+/*
 .왼쪽메뉴{
     height : 100%;
     width : 200px;
@@ -95,6 +135,7 @@ ul{
     transition : all 0.25s ease;
     margin-bottom : 10px;
 }
+
 .왼쪽메뉴 ul li button:hover{
     color:white;
     background: #fd8282;
@@ -109,14 +150,9 @@ ul{
     background: #fd8282;
     text-decoration:none;
 }
-.body_content{
-    position : absolute;
-    left : 200px;
-    top : 50px;
-}
+
 .문의내용광고{
     border : solid 1px;
-    /**/
     left : 200px;
     height : 200px;
     width : 400px;
@@ -125,7 +161,6 @@ ul{
 }
 .공모나열{
     border: solid 1px;
-    /**/
     max-width: 1600px;
     overflow: hidden;
     left : 250px;
@@ -232,3 +267,5 @@ ul{
 footer{
     background-color:white;
 }
+
+*/
