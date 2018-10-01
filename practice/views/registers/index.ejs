@@ -16,47 +16,22 @@
       <a href="/registers/new"><button id="btn_new">New</button></a>
       <% } %>
     </div>
-    
-
-    <table>
-      <thead>
-        <tr>
-          <th class="title">Title</th>
-          <th class="author">Author</th>
-          <th class="date">Date</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% if(registers == null || registers.length == 0){ %>
-        <tr>
-          <td class="noData" colspan=100> There is no data to show :( </td>
-        </tr>
-        <% } %>
+    <div class="카테고리별_공모">
+      <ul>
         <% registers.forEach(function(register) { %>
-        <tr>
-          <td class="title">
-            <a href="/registers/<%= register._id %>">
-              <div class="ellipsis">
-                <%= register.title %>
-              </div>
-            </a>
-          </td>
-
-          <td class="author">
-            <!-- author가 있는 경우 author의 username을 표시 -->
-            <div class="ellipsis">
-              <%= register.author ? register.author.username : "" %>
+        <li>
+            <div class="아이템_한개_전체">
+                <div class="아이템_이미지">아이템이미지</div>
+                <div class="아이템_내용">
+                    <div class="아이템_제목"><%= register.title %></div>
+                    <div class="아이템_마감일"><%= register.deadline %></div>
+                    <div class="아이템_인원"><%= register.required_people %></div>
+                </div>
             </div>
-            <!-- ellipsis ext의 내용이 width보다 긴 경우 긴 부분을 잘라내고 "..."을 추가 -->
-          </td>
-
-          <td class="date">
-            <%= register.createdDate %>
-          </td>
-        </tr>
+        </li>
         <% }) %>
-      </tbody>
-    </table>
+      </ul>
+    </div>
 
   </div> <!-- container end -->
 </body>
