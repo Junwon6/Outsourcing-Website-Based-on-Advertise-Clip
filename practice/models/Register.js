@@ -18,6 +18,10 @@ var registerSchema = mongoose.Schema({
         ref: "user",
         required: true
     },
+    company: { 
+        type: String,
+        required: true
+    },
     required_people: {
         type: Number,
         required: true
