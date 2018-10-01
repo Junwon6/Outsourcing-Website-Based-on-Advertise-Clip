@@ -41,15 +41,15 @@
             </div>
 
             <div>
-              <label for="budget">첨부 이미지</label>
+              <label for="company">회사명</label>
               <div >
-                <input type="text" id="img" name="img" value="<%= register.img %>">
-                <% if(errors.img){ %>
-                  <span ><%= errors.img.message %></span>
+                <input type="text" id="company" name="company" value="<%= register.company %>">
+                <% if(errors.company){ %>
+                  <span ><%= errors.company.message %></span>
                 <% } %>
               </div>
             </div>
-            
+
             <div>
               <label for="required_people">필요 크리에이터 수</label>
               <div >
