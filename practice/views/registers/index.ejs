@@ -6,14 +6,35 @@
 
 <body class="body">
   <% include ../partials/nav %>
-  <div>
+
+  <div id="body_content_id">
+
     <div>
       <% if(isAuthenticated){ %>
       <!--  new 버튼은 로그인된 경우에만 보임-->
       <a href="/registers/new"><button id="btn_new">New</button></a>
       <% } %>
     </div>
-    
+
+    <div class="register_top">
+      <div class="register_top_box">
+        <img src="/img/icon_write.png" alt="write"><br>
+        폼을 작성하세요!
+      </div>
+      <div class="register_top_box">
+          <img src="/img/icon_register.png" alt="register"><br>
+          공모를 등록하세요!
+      </div>
+      <div class="register_top_box">
+          <img src="/img/icon_find.png" alt="find"><br>
+          참여자를 고르세요!
+      </div>
+      <div class="register_top_box">
+          <img src="/img/icon_hand.png" alt="hand"><br>
+          함께 작품을 만들어요!
+      </div>
+    </div>
+
     <div class="카테고리별_공모">
       <ul class="all_list">
         <% registers.forEach(function(register) { %>

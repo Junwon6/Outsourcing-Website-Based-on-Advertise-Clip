@@ -3,14 +3,13 @@
 <html>
   <head>
     <% include ../partials/head %>
+    <link rel="stylesheet" type="text/css" href="/css/register_show.css" />
   </head>
   <body>
     <% include ../partials/nav %>
     <div>
-      <% include ./partials/header %>
 
       <div class="btn_all">
-        <a href="/registers"><button id="btn">Back</button></a>
         <!-- 로그인이 된 상태이고, 게시물의 작성자 id(post.author.id)와 현재 로그인된 사용자의 id(currentUser.id)가 일치하는 경우에만 edit, delete을 보여줌 -->
         <% if(isAuthenticated && register.author && currentUser.id == register.author.id){ %>
           
@@ -21,30 +20,28 @@
         <% } %>
       </div>
 
-      <div class="post_1">
-        <div class="post_2">
-          <div class="post_3">
-            <div class="post_4">
-              <div class="post_img">이미지 : <%= register.img %></div>
-              <div class="post_title">title : <%= register.title %></div><br>
-              <div class="post_subtitle">sub_title : <%= register.sub_title %></div>
-              <div class="post_required_people">required_people : <%= register.required_people %></div>
-              <div class="post_budget">budget : <%= register.budget %></div>
-              <div class="post_startline">startline : <%= register.startline %></div>    
-              <div class="post_author">작성자 : <%= register.author ? register.author.username : "" %></div>
-              <div class="post_createdDate">작성일 : <%= register.createdDate %> <%= register.createdTime %></div>
-              <div class="post_deadline">마감일 : <%= register.deadline %></div>
-              <div class="post_body">내용 : <%= register.body %></div>
-              
-              <!-- 업데이트 시 적용 -->
-              <% if(register.updatedAt) { %>
-                <div class="post_updated">Updated : <%= register.updatedDate %> <%= register.updatedTime %></div>
-              <% } %>
+      <div class="box">
+        <h2><%= register.title %></h2>
+        
+        <div class="t1"><%= register.author ? register.author.username : "" %> | <%= register.company %></div>
+        <hr>
+        <div class="box3">
+          <div class="box2"><%= register.required_people %>명</div>
+          <div class="box2"><%= register.budget %>원</div>
+          <% if ((register.deadline - (new Date())) < 0) { %>
+            <div class="box2">마감</div>
+          <% } else {%>
+            <div class="box2">D - <%= Math.floor((register.deadline - (new Date())) / (1000 * 60 * 60 * 24)) %></div>
+          <% } %>
+        </div>
+        <div class="">내용 : <%= register.body %></div>
+        <% if(isAuthenticated && currentUser.id !=register.author.id){ %>
+            
+            <input type="checkbox" id="참여하기">참여하기</input>
+            
+        <%  } %>
+                 
+      </div>
 
-            </div> <!-- post-info end -->
-          </div> <!-- col end-->
-        </div> <!-- row end -->
-      </div> <!-- post-container end -->
-    </div> <!-- container end -->
   </body>
 </html>

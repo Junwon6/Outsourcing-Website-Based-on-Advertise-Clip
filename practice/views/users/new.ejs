@@ -6,7 +6,7 @@
   <body>
     <% include ../partials/nav %>
 
-    <div>
+    <div id="body_content_id">
       
       <form action="/users" method="post">
         <div >
@@ -14,7 +14,7 @@
 
           <fieldset>
             <div>
-              <label for="username">Username*</label>
+              <label for="username">ID*</label>
               <div >
                 <input type="text" id="username" name="username" value="<%= user.username %>">
                 <% if(errors.username){ %>
@@ -22,9 +22,9 @@
                 <% } %>
               </div>
             </div>
-
+            
             <div>
-              <label for="name" >Name*</label>
+              <label for="name" >이름*</label>
               <div >
                 <input type="text" id="name" name="name" value="<%= user.name %>">
                 <% if(errors.name){ %>
@@ -44,9 +44,9 @@
             </div>
 
             <div>
-              <label for="phone_num" >Phone</label>
+              <label for="phone_num" >전화번호</label>
               <div >
-                <input type="text" id="phone_num" name="phone_num" value="<%= user.phone_num %>">
+                <input type="text" id="phone_num" name="phone_num" value="<%= user.phone_num %>" placeholder="-는 생략해주세요">
                 <% if(errors.phone_num){ %>
                   <span ><%= errors.phone_num.message %></span>
                 <% } %>
@@ -54,7 +54,7 @@
             </div>
             
             <div>
-              <label for="password" >Password*</label>
+              <label for="password" >비밀번호*</label>
               <div >
                 <input  type="password" id="password" name="password" value="">
                 <% if(errors.password){ %>
@@ -64,7 +64,7 @@
             </div>
 
             <div>
-              <label for="passwordConfirmation" >Confirm*</label>
+              <label for="passwordConfirmation" >비밀번호 확인*</label>
               <div >
                 <input  type="password" id="passwordConfirmation" name="passwordConfirmation" value="">
                 <% if(errors.passwordConfirmation){ %>
@@ -74,13 +74,13 @@
             </div>
 
             <p>
-              <small>*Required</small>
+              <small>*표시는 필수사항입니다</small>
             </p>
 
           </fieldset>
         </div>
         <div>
-          <button type="submit">Submit</button>
+          <button type="submit">가입요청</button>
         </div>
         
         <% if(errors.unhandled){ %>
