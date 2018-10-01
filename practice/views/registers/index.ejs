@@ -4,16 +4,18 @@
   <% include ../partials/head %>
 </head>
 
-<body>
+<body class="body">
   <% include ../partials/nav %>
-  
+
   <div id="body_content_id">
+
     <div>
       <% if(isAuthenticated){ %>
       <!--  new 버튼은 로그인된 경우에만 보임-->
       <a href="/registers/new"><button id="btn_new">New</button></a>
       <% } %>
     </div>
+
     <div class="register_top">
       <div class="register_top_box">
         <img src="/img/icon_write.png" alt="write"><br>
@@ -32,22 +34,23 @@
           함께 작품을 만들어요!
       </div>
     </div>
+
     <div class="카테고리별_공모">
-      <ul>
+      <ul class="all_list">
         <% registers.forEach(function(register) { %>
-        <li>
+        <li class="list">
             <div class="아이템_한개_전체" onclick="location.href='/registers/<%= register._id %>'">
-                <div class="아이템_내용">
-                    <div class="아이템_제목"><%= register.title %></div>
-                    <div class="아이템_회사명"><%= register.company %></div>
-                    <div class="아이템_마감일"><%= register.deadline.toLocaleDateString() %></div>
-                    <div class="아이템_인원"><%= register.required_people %></div>
-                </div>
+              <div class="아이템_제목"><%= register.title %></div>
+              <div class="아이템_회사명">회사명 : <%= register.company %></div>
+              <div class="아이템_인원">필요 인원 수 : <%= register.required_people %>명</div>
+              <div class="아이템_마감일">마감일 : <%= register.deadline.toLocaleDateString() %></div>
+              <div class="아이템_D-Day">D-30</div>
             </div>
         </li>
         <% }) %>
       </ul>
     </div>
+    
   </div>
 </body>
 

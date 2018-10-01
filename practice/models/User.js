@@ -30,7 +30,7 @@ var userSchema = mongoose.Schema({
   },
   phone_num: {
     type: String,
-    match: [/^\d{3}\d{3,4}\d{4}$/, "Should be a vaild phone num! ex) xxx-xxxx-xxxx"],
+    match: [/^\d{3}\d{3,4}\d{4}$/, "Should be a vaild phone num! ex) 01012345678"],
     require: [true, "PhoneNum is required!"]
   },
 }, 
