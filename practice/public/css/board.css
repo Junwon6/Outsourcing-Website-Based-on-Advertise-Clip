@@ -6,13 +6,22 @@
     height: 100%;
 }
 
+.list {
+    display: inline-block;
+}
+
+.카테고리별_공모{
+     width: 100%;
+     height: 100%;
+     margin: 0px 85px;
+}
+
 .아이템_한개_전체 {
     border-radius: 1em;
     max-width: 300px;
     min-width: 300px;
-    height: 200px;
-    margin: 0px 0px 0px;
-    padding: 0px 0px 0;
+    height: 180px;
+    margin: 10px;
     position: static;
     background-color: white;
     display: flex;
@@ -20,9 +29,9 @@
     align-items: flex-start;
     flex-wrap: wrap;
     margin-bottom: 30px;
-    text-overflow: ellipsis;
     padding: 0 20px;
     box-shadow: 0 8px 38px rgba(133, 133, 133, 0.3), 0 5px 12px rgba(133, 133, 133, 0.22);
+    cursor: pointer;
 }
 
 .공모_이미지 {
@@ -33,41 +42,35 @@
     position: absolute;
 }
 
-.아이템_내용 {
-    display: inline;
+.아이템_제목, .아이템_회사명 {
+    width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: 10px;
 }
-
 .아이템_제목 {
-    border-radius: 0.4em;
-    float: left;
-    width: 280px;
-    margin: 10px;
+    margin-bottom: 10px;
     font-size: 20px;
     font-weight: 600;
 }
-
 .아이템_회사명 {
-    border: solid 1px gray;
-    border-radius: 0.4em;
-    width: 140px;
     height: 30px;
-    float: left;
-    margin: 10px;
+    font-size: 17px;
 }
-
-.아이템_마감일 {
-    border: solid 1px gray;
-    border-radius: 0.4em;
-    width: 140px;
+.아이템_인원, .아이템_마감일 {
     float: left;
+    width: 170px;
+    height: 30px;
+    margin-top: 10px;
     margin-left: 10px;
+    font-size: 17px;
 }
-
-.아이템_인원 {
-    border: solid 1px gray;
-    border-radius: 0.4em;
-    float: left;
-    margin-left: 5px;
-    width: 100px;
-    margin-top: 40px;
+.아이템_D-Day {
+    width: 80px;
+    height: 50px;
+    font-size: 30px;
+    font-weight: bold;
 }
