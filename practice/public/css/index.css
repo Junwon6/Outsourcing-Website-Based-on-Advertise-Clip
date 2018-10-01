@@ -16,6 +16,10 @@ body{
     height : 100%;
     width:100%;
 }
+#home_img{
+    width:90%;
+    height : 600px;
+}
 .body_content{
     background-color: #f2f2f2;
 }
