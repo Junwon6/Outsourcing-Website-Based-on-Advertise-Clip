@@ -12,38 +12,12 @@
     <div class="body_content">
         <div class="home_img">
             <img src="/img/home_img.jpg" id="home_img" alt="home_img">
+            <a href="/registers"><button id="home_register"><span id="btn_span">지금 공모전<br/><span id="btn_span_camp">참여하기!</span></span></button></a>
         </div>
-        <div class="공모나열">
-            <!-- 공모 나열 -->
-            <div class="카테고리">
-                <!-- 공모 카테고리-->
-                <ul>
-                    <li><button>전체</button></li>
-                    <li><button>음식</button></li>
-                    <li><button>상품</button></li>
-                    <li><button>장소</button></li>
-                    <li><button>기타</button></li>
-                </ul>
-            </div>
-            <div class="카테고리별_공모">
-                <ul>
-                    <% registers.forEach(function(register) { %>
-                    <li>
-                        <div class="아이템_한개_전체">
-                            <div class="아이템_이미지">아이템이미지</div>
-                            <div class="아이템_내용">
-                                <div class="아이템_제목"><%= register.title %></div>
-                                <div class="아이템_마감일"><%= register.deadline %></div>
-                                <div class="아이템_인원"><%= register.required_people %></div>
-                            </div>
-                        </div>
-                    </li>
-                    <% }) %>
-                </ul>
-            </div>
-        </div>
+        
     </div>
-    <footer></footer>
+    <footer>
+    </footer>
 </body>
 
 </html>
