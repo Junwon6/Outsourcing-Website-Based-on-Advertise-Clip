@@ -6,7 +6,9 @@
 .폼_내용{
     margin-top : 10px;
 }
-
+.register_top{
+    display: inline-block;
+}
 #btn_new{
     outline:none;
     height: 40px;
@@ -23,4 +25,16 @@
     cursor : pointer;
     transition : all 0.25s ease;
     margin-bottom : 10px;
+}
+
+.register_top img{
+    width : 40px;
+    height : 40px;
+}
+.register_top_box{
+    padding-top : 50px;
+    width:200px;
+    height:200px;
+    display: inline-block;
+    box-sizing : border-box;
 }
