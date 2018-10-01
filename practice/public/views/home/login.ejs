@@ -7,7 +7,7 @@
   <body>
     <% include ../partials/nav %>
 
-    <div>
+    <div id="body_content_id">
 
       <form action="/login" method="post">
         
@@ -18,7 +18,7 @@
           <fieldset>
             
             <div>
-              <label for="username">Username</label>
+              <label for="username">ID</label>
               <div>
                 <input type="text" id="username" name="username" value="<%= username %>">
                 <% if(errors.username){ %>
@@ -28,7 +28,7 @@
             </div>
 
             <div>
-              <label for="password">Password</label>
+              <label for="password">비밀번호</label>
               <div>
                 <input type="password" id="password" name="password" value="">
                 <% if(errors.password){ %>
