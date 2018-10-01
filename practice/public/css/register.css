@@ -6,16 +6,7 @@
 .폼_내용{
     margin-top : 10px;
 }
-.왼쪽공간{
-    height : 100%;
-    width : 200px;
-    float : left;
-    background-color:#f2f2f2;
-    position : relative;
-    margin-right : 50px;
 
-
-}
 #btn_new{
     outline:none;
     height: 40px;
