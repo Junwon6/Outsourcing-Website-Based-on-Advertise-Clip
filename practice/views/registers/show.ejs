@@ -26,8 +26,9 @@
         <div class="t1"><%= register.author ? register.author.username : "" %> | <%= register.company %></div>
         <hr>
         <div class="box3">
-          <div class="box2">상금 : <%= register.budget %>원</div>
-          <div class="box2">마감일 : <%= register.deadline.toLocaleDateString() %></div>
+          <div class="box2"><%= register.required_people %>명</div>
+          <div class="box2"><%= register.budget %>원</div>
+          <div class="box2">D - <%= Math.floor((register.deadline - (new Date())) / (1000 * 60 * 60 * 24)) %></div>
         </div>
         <div class="">내용 : <%= register.body %></div>
         <% if(isAuthenticated &&currentUser.id !=register.author.id){ %>
