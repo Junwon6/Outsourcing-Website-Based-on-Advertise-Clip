@@ -8,12 +8,13 @@
 
 .list {
     display: inline-block;
+    float: left;
 }
 
 .카테고리별_공모{
-     width: 100%;
-     height: 100%;
-     margin: 0px 85px;
+    width: 100%;
+    height: 100%;
+    margin: 0px 60px;
 }
 
 .아이템_한개_전체 {
@@ -50,6 +51,7 @@
     display: inline-block;
     margin-top: 10px;
     margin-left: 10px;
+    text-align: left;
 }
 .아이템_제목 {
     margin-bottom: 10px;
@@ -67,6 +69,7 @@
     margin-top: 10px;
     margin-left: 10px;
     font-size: 17px;
+    text-align: left;
 }
 .아이템_D-Day {
     width: 80px;
