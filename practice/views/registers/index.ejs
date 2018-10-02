@@ -44,7 +44,11 @@
               <div class="아이템_회사명">회사명 : <%= register.company %></div>
               <div class="아이템_인원">필요 인원 수 : <%= register.required_people %>명</div>
               <div class="아이템_마감일">마감일 : <%= register.deadline.toLocaleDateString() %></div>
-              <div class="아이템_D-Day">D-30</div>
+              <% if ((register.deadline - (new Date())) < 0) { %>
+                <div class="아이템_D-Day">마감</div>
+              <% } else {%>
+                <div class="아이템_D-Day">D-<%= Math.floor((register.deadline - (new Date())) / (1000 * 60 * 60 * 24)) %></div>
+              <% } %>
             </div>
         </li>
         <% }) %>
