@@ -34,8 +34,9 @@
     text-decoration: none !important;
     text-transform: none;
     text-transform: capitalize;
-  
+    
     border: 0 none;
+    border : solid 1px #1E1636;
     border-radius: 4px;
     
     font-size: 14px;
