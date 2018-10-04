@@ -32,6 +32,7 @@ router.get("/new", util.isLoggedin, (req, res) => {
 // util.isLoggedin를 사용해서 로그인이 된 경우에만 다음 callback을 호출
 router.post("/", util.isLoggedin, (req, res) => {
     req.body.author = req.user._id; // 글을 작성할때는 req.user._id를 가져와서 post의 author에 기록
+    req.body.body = req.body.body.replace(/\r\n/gi, "<br>")
     Register.create(req.body, (err, register) => {
         if (err) {
             req.flash("register", req.body);
