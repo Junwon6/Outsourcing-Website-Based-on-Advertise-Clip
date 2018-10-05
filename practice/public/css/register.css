@@ -1,3 +1,4 @@
+@import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
 .작성폼{
     position : absolute;
     left : 300px;
@@ -89,6 +90,6 @@
 }
 .register_top_span_text{
     font-size : 17px;
-    font-weight: 600;
-    font-family:  'Montserrat';
+    color: #2e3134;
+    font-family: 'Jeju Gothic', sans-serif;
 }
