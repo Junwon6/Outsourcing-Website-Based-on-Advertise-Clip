@@ -57,6 +57,16 @@ router.get("/:id", (req, res) => {
         });
 });
 
+router.post("/:id", (req, res) => {
+    Register.findOneAndUpdate({
+            _id: req.body.register_id
+        }, { $push: { participants: req.body.user_id }}, {
+            runValidators: true
+        }, (err, register) => {
+            res.redirect("/registers/" + req.body.register_id);
+        });
+});
+
 // edit
 // util.isLoggedin를 사용해서 로그인이 된 경우에만 다음 callback을 호출
 // checkPermission를 사용해서 본인이 작성한 글에만 다음 callback을 호출
