@@ -9,11 +9,10 @@
 .register_top{
     width: 1000px;
     height: 30%;
-    margin: 0px 60px;
+    margin: 0px auto;
     box-sizing: border-box;
 }
 .register_top_1{
-    left : -150px;
     position : relative;
 }
 
