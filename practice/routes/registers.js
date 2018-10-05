@@ -68,6 +68,7 @@ router.get("/:id/edit", util.isLoggedin, checkPermission, (req, res) => {
             _id: req.params.id
         }, (err, register) => {
             if (err) return res.json(err);
+            register.body = register.body.replace(/<br>/gi, "\r\n");
             res.render("registers/edit", {
                 register: register,
                 errors: errors
@@ -87,6 +88,7 @@ router.get("/:id/edit", util.isLoggedin, checkPermission, (req, res) => {
 // checkPermission를 사용해서 본인이 작성한 글에만 다음 callback을 호출
 router.put("/:id", util.isLoggedin, checkPermission, (req, res) => {
     req.body.updatedAt = Date.now();
+    req.body.body = req.body.body.replace(/\r\n/gi, "<br>");
     Register.findOneAndUpdate({
         _id: req.params.id
     }, req.body, {

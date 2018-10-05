@@ -39,7 +39,11 @@ var registerSchema = mongoose.Schema({
         default: Date.now
     },
     body: {
-        type: String,
+        type: String,   
+        require: true
+    },
+    participants: {
+        type: Array,   
         require: true
     },
 }, {

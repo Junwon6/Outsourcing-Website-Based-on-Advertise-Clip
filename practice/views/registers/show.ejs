@@ -34,12 +34,9 @@
             <div class="box2">D - <%= Math.floor((register.deadline - (new Date())) / (1000 * 60 * 60 * 24)) %></div>
           <% } %>
         </div>
-        <div id="content" style="display:none;"><%= register.body %></div>
-        <div id="content2"></div>
+        <div id="content"><%= register.body %></div>
         <script>
-            var content = document.getElementById("content");
-            var content2 = document.getElementById("content2");
-            content2.innerHTML = content.innerHTML.replace(/&lt;br&gt;/gi, "<br>");
+            content.innerHTML = content.innerHTML.replace(/&lt;br&gt;/gi, "<br>");
         </script>
         <% if(isAuthenticated && currentUser.id !=register.author.id){ %>
             <input type="checkbox" id="참여하기">참여하기</input>
