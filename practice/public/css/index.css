@@ -1,6 +1,6 @@
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css); 
 /*
-* background
+*   background
 *   white : #dce7eb
 *   grey  : #dfe9ec
 *   
@@ -150,4 +150,22 @@ ul{
     position : absolute;
     left : 200px;
     top : 50px;
+}
+
+.btn_all{
+    text-align : center;
+    display: inline-block;
+    position : relative;
+    margin : 0px auto;
+    height : 10px;
+}
+.btn_all_1{
+    margin : 0px auto;
+    width : 140px;
+    display: inline-block;
+}
+.btn_all_2{
+    margin : 0px auto;
+    width : 140px;
+    display: inline-block;
 }
