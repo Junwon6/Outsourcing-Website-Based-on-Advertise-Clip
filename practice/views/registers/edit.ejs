@@ -5,12 +5,8 @@
   </head>
   <body class="body">
     <% include ../partials/nav %>
-    <div>
+    <div id="body_content_id">
       <% include ./partials/header %>
-
-      <div>
-        <a href="/registers">Back</a>
-      </div>
 
       <form action="/registers/<%= register._id %>?_method=put" method="post">
         
@@ -82,7 +78,7 @@
             <div>
               <label for="body">내용</label>
               <div>
-                <textarea id="body" name="body" rows="5"><%= register.body %></textarea>
+                <textarea id="body" name="body" ><%= register.body %></textarea>
                 <% if(errors.body){ %>
                   <span><%= errors.body.message %></span>
                 <% } %>
