@@ -5,12 +5,8 @@
   </head>
   <body class="body">
     <% include ../partials/nav %>
-    <div>
+    <div id="body_content_id">
       <% include ./partials/header %>
-
-      <div>
-        <a href="/registers">Back</a>
-      </div>
 
       <form action="/registers/<%= register._id %>?_method=put" method="post">
         

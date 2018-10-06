@@ -228,3 +228,10 @@ input{
     border-radius: 30%;
     color: #ccc;
 }
+
+#body_content_id{
+    text-align: center;
+    height : 500px;
+    width: 70%;
+    margin : 0px auto;
+}
