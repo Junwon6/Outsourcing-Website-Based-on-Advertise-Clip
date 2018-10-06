@@ -224,12 +224,22 @@ ul{
 }
 input{
     padding: 5px 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
     transition: border-width 0.2s ease;
-    border-radius: 30%;
     color: #ccc;
     text-align: center;
+    width : 30%;
+    border: 1px solid #74637f;
+}
+textarea {
+    z-index: 2;
+    border: 1px solid #74637f;
+    width : 30%;
+    height : 500px;
+    color: #444;
+    background-color: white;
+    overflow: auto;
+    resize: none;
+    transition: transform 1s;
 }
 
 #body_content_id{
