@@ -4,54 +4,40 @@
   <head>
     <% include ../partials/head %>
   </head>
-  <body>
+  <body class="body">
     <% include ../partials/nav %>
 
     <div id="body_content_id">
-
       <form action="/login" method="post">
-        
         <div>
-          
           <h3>Login</h3>
-          
           <fieldset>
-            
-            <div>
-              <label for="username">ID</label>
-              <div>
-                <input type="text" id="username" name="username" value="<%= username %>">
+              <div class="login">
+                <input type="text" id="username" name="username" required value="Username" onBlur="if(this.value=='')this.value='Username'" onFocus="if(this.value=='Username')this.value='' "value="<%= username %>">
                 <% if(errors.username){ %>
                   <span><%= errors.username %></span>
                 <% } %>
               </div>
-            </div>
-
-            <div>
-              <label for="password">Password</label>
-              <div>
-                <input type="password" id="password" name="password" value="">
+            
+              <div class="login">
+                <input type="password" id="password" required value="Password" onBlur="if(this.value=='')this.value='Username'" onFocus="if(this.value=='Username')this.value='' " name="password" value="">
                 <% if(errors.password){ %>
                   <span><%= errors.password %></span>
                 <% } %>
               </div>
-            </div>
-
+            
             <% if(errors.login){ %>
               <div>
                 <span><%= errors.login %></span>
               </div>
             <% } %>
-
           </fieldset>
         </div>
-
         <div>
           <input type="submit" id="button_login" value="로그인">
         </div>
 
       </form>
-
     </div> <!-- container end -->
   </body>
 </html>

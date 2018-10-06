@@ -65,7 +65,7 @@ button{
 button:hover{
     transition: all 150ms linear;
     color: white;
-    background-color: #1E1636;
+    background-color: #bdc3c7;
     opacity: 0.6;
 }
 button:active{
@@ -171,65 +171,6 @@ ul{
     display: inline-block;
 }
 
-#button_login{
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 5px 5px;
-    width: 140px;
-
-    cursor: pointer;
-    user-select: none;
-    transition: all 150ms linear;
-
-    text-align: center;
-    
-    white-space: nowrap;
-    text-decoration: none !important;
-    text-transform: none;
-    text-transform: capitalize;
-    
-    border: 0 none;
-    border : solid 1px #1E1636;
-    border-radius: 10px;
-    
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 1.3;
-  
-    -webkit-appearance: none;
-    -moz-appearance:    none;
-    appearance:         none;
-   
-    justify-content: center;
-    align-items: center;
-    flex: 0 0 160px;
-    
-    box-shadow: 2px 5px 10px var(#e4e4e4);
-  
-    color: #1E1636;
-    background-color: white;
-    opacity : 0.6;
-    margin-top : 30px;
-}
-#button_login:hover{
-    transition: all 150ms linear;
-    color: white;
-    background-color: #1E1636;
-    opacity: 0.6;
-}
-#button_login:active{
-    transition: all 150ms linear;
-    background-color: #d5d6d6;
-    opacity: 1;
-}
-input{
-    padding: 5px 10px;
-    transition: border-width 0.2s ease;
-    color: #ccc;
-    text-align: center;
-    width : 30%;
-    border: 1px solid #74637f;
-}
 textarea {
     z-index: 2;
     border: 1px solid #74637f;
@@ -242,9 +183,49 @@ textarea {
     transition: transform 1s;
 }
 
-#body_content_id{
+.register_form{
+    margin: 20px auto;
+    display: grid;
+    width: 280px;
+}
+
+#button_register {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 5px 5px;
+    width: 140px;
+
+    cursor: pointer;
+    user-select: none;
+    transition: all 150ms linear;
+
     text-align: center;
-    height : 500px;
-    width: 70%;
-    margin : 0px auto;
+
+    white-space: nowrap;
+    text-decoration: none !important;
+    text-transform: none;
+    text-transform: capitalize;
+
+    border: 0 none;
+    border: solid 1px #1E1636;
+    border-radius: 10px;
+
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.3;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 160px;
+
+    box-shadow: 2px 5px 10px var(#e4e4e4);
+
+    color: #1E1636;
+    background-color: white;
+    opacity: 0.6;
+    margin-top: 30px;
 }

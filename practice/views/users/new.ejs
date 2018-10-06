@@ -13,65 +13,47 @@
           <h3 >New User</h3>
 
           <fieldset>
-            <div>
-              <label for="username">ID*</label>
-              <div >
-                <input type="text" id="username" name="username" value="<%= user.username %>">
+              <div class="register_form">
+                <input type="text" id="username" name="username" required value="ID*" value="<%= user.username %>" onBlur="if(this.value=='')this.value='ID*'" onFocus="if(this.value=='ID*')this.value='' ">
                 <% if(errors.username){ %>
                   <span ><%= errors.username.message %></span>
                 <% } %>
               </div>
-            </div>
             
-            <div>
-              <label for="name" >이름*</label>
-              <div >
-                <input type="text" id="name" name="name" value="<%= user.name %>">
+              <div class="register_form">
+                <input type="text" id="name" name="name" required value="이름*" value="<%= user.name %>" onBlur="if(this.value=='')this.value='이름*'" onFocus="if(this.value=='이름*')this.value='' ">
                 <% if(errors.name){ %>
                   <span ><%= errors.name.message %></span>
                 <% } %>
               </div>
-            </div>
 
-            <div>
-              <label for="email" >Email</label>
-              <div >
-                <input type="text" id="email" name="email" value="<%= user.email %>">
+              <div class="register_form">
+                <input type="text" id="email" name="email" required value="E-mail" value="<%= user.email %>" onBlur="if(this.value=='')this.value='E-mail'" onFocus="if(this.value=='E-mail')this.value='' ">
                 <% if(errors.email){ %>
                   <span ><%= errors.email.message %></span>
                 <% } %>
               </div>
-            </div>
 
-            <div>
-              <label for="phone_num" >전화번호</label>
-              <div >
-                <input type="text" id="phone_num" name="phone_num" value="<%= user.phone_num %>" placeholder="-는 생략해주세요">
+              <div class="register_form">
+                <input type="text" id="phone_num" name="phone_num" required value="전화번호 (-는 생략해주세요)" value="<%= user.phone_num %>" onBlur="if(this.value=='')this.value='전화번호 (-는 생략해주세요)'" onFocus="if(this.value=='전화번호 (-는 생략해주세요)')this.value='' ">
                 <% if(errors.phone_num){ %>
                   <span ><%= errors.phone_num.message %></span>
                 <% } %>
               </div>
-            </div>
             
-            <div>
-              <label for="password" >비밀번호*</label>
-              <div >
-                <input  type="password" id="password" name="password" value="">
+              <div class="register_form">
+                <input  type="password" id="password" name="password" required value="비밀번호*" value="" onBlur="if(this.value=='')this.value='비밀번호*'" onFocus="if(this.value=='비밀번호*')this.value='' ">
                 <% if(errors.password){ %>
                   <span ><%= errors.password.message %></span>
                 <% } %>
               </div>
-            </div>
 
-            <div>
-              <label for="passwordConfirmation" >비밀번호 확인*</label>
-              <div >
-                <input  type="password" id="passwordConfirmation" name="passwordConfirmation" value="">
+              <div class="register_form">
+                <input  type="password" id="passwordConfirmation" name="passwordConfirmation" required value="비밀번호*" value="" onBlur="if(this.value=='')this.value='비밀번호*'" onFocus="if(this.value=='비밀번호*')this.value='' ">
                 <% if(errors.passwordConfirmation){ %>
                   <span ><%= errors.passwordConfirmation.message %></span>
                 <% } %>
               </div>
-            </div>
 
             <p>
               <small>*표시는 필수사항입니다</small>
@@ -79,8 +61,8 @@
 
           </fieldset>
         </div>
-        <div>
-          <button type="submit">가입요청</button>
+        <div >
+          <button id="button_register" type="submit">가입요청</button>
         </div>
         
         <% if(errors.unhandled){ %>
