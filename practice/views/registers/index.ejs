@@ -39,27 +39,22 @@
       </div>
       </div>
     </div>
-
-    <div class="카테고리별_공모">
-      <ul class="all_list">
+      
+      <div class="grid-container">
         <% registers.forEach(function(register) { %>
-        <li class="list">
-            <div class="아이템_한개_전체" onclick="location.href='/registers/<%= register._id %>'">
-              <div class="아이템_제목"><%= register.title %></div>
-              <div class="아이템_회사명">회사명 : <%= register.company %></div>
-              <div class="아이템_인원">필요 인원 수 : <%= register.required_people %>명</div>
-              <div class="아이템_마감일">마감일 : <%= register.deadline.toLocaleDateString() %></div>
-              <% if ((register.deadline - (new Date())) < 0) { %>
-                <div class="아이템_D-Day">마감</div>
-              <% } else {%>
-                <div class="아이템_D-Day">D-<%= Math.floor((register.deadline - (new Date())) / (1000 * 60 * 60 * 24)) %></div>
-              <% } %>
-            </div>
-        </li>
+          <div class="아이템_한개_전체" onclick="location.href='/registers/<%= register._id %>'">
+            <div class="아이템_제목"><%= register.title %></div>
+            <div class="아이템_회사명">회사명 : <%= register.company %></div>
+            <div class="아이템_인원">필요 인원 수 : <%= register.required_people %>명</div>
+            <div class="아이템_마감일">마감일 : <%= register.deadline.toLocaleDateString() %></div>
+            <% if ((register.deadline - (new Date())) < 0) { %>
+              <div class="아이템_D-Day">마감</div>
+            <% } else {%>
+              <div class="아이템_D-Day">D-<%= Math.floor((register.deadline - (new Date())) / (1000 * 60 * 60 * 24)) %></div>
+            <% } %>
+          </div>
         <% }) %>
-      </ul>
-    </div>
-    
+      </div>
   </div>
 </body>
 

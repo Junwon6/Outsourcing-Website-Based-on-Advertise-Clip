@@ -4,10 +4,20 @@
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     background-color: #EFF3F7;
     height: 100%;
+    width: 100%;
 }
 
-.list {
-    display: inline-block;
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 10px;
+    padding: 10px;
+}
+
+.grid-container>div {
+    margin: 0px auto;
+    text-align: center;
+    font-size: 15px;
 }
 
 .카테고리별_공모{
