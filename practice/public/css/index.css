@@ -74,11 +74,14 @@ button:active{
 
 }
 #home_img{
+    position: absolute;
+    margin : 0px auto;
+}
+#home_img_{
+    margin :0 auto;
     width:1100px;
     height : 600px;
-    position: absolute;
-    opacity : 0.6;
-
+    opacity: 0.6;
 }
 .body_content{
     background-color: #f2f2f2;
@@ -129,6 +132,7 @@ ul{
     top:480px;
     left : 470px;
     font-family: "Noto Sans KR", sans-serif;
+    opacity : 1;
 }
 .home_img #home_register:hover{
     background-color : yellowgreen;
