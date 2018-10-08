@@ -6,6 +6,7 @@
 }
 
 .list {
+    cursor: pointer;
     display: inline-block;
     margin: 0 auto;
 }
