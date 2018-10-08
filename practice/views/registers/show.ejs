@@ -42,8 +42,26 @@
         <script>
             content.innerHTML = content.innerHTML.replace(/&lt;br&gt;/gi, "<br>");
         </script>
-
-        <div>참여자 : <%= register.participants %></div>
+        <% var participants = [] %>
+        <% for (var i = 0; i < register.participants.length; i++) { 
+            var participant_id = register.participants[i];
+            for (var j = 0; j < users.length; j++) {
+              var user = users[j];
+              if (user._id == participant_id) {
+                participants.push(user);
+              }
+            }
+        } %>
+        <% for (var i = 0; i < participants.length; i++) { 
+            var temp = participants[i];
+          %>
+          <div>참가자</div>
+          <div><%= temp.username %></div>
+          <div><%= temp.name %></div>
+          <div><%= temp.email %></div>
+          <div><%= temp.phone_num %></div>
+          <br>       
+        <% } %>
         <% if(isAuthenticated && currentUser.id !=register.author.id){ %>
           <form action="/registers/<%= register._id %>" method="post">
             <input style="display: none" type="text" name="user_id" value="<%= currentUser.id %>">

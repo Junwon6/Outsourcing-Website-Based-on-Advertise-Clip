@@ -1,14 +1,6 @@
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css); 
 @import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
-/*
-*   background
-*   white : #dce7eb
-*   grey  : #dfe9ec
-*   
-* font
-*   'Malgun Gothic', sans-serif;
-*
-*/
+
 #nav_bar{
     background-color : white;
     font-family: 'Jeju Gothic', sans-serif;
