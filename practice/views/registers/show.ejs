@@ -53,32 +53,33 @@
             }
         } %>
         <% if(isAuthenticated && currentUser.id == register.author.id){ %>
-        <div class="partin_all">
-
+        
+          <div class="table_users">
+            <div class="table_header">참여자</div>
+              <table cellspacing="0">
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                </tr>
           <% for (var i = 0; i < participants.length; i++) { 
             var temp = participants[i];
           %>
-          <div class="table_users">
-          <div class="table_header">참가자</div>
-          <table cellspacing="0">
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Number</th>
-            </tr>
-            <tr>
+          
+              <tr>
+              
               <td><%= temp.username %></td>
               <td><%= temp.name %></td>
               <td><%= temp.email %></td>
               <td><%= temp.phone_num %></td>
+              
             </tr>
-            </table>
-          </div>
-          <br>       
+            
           <% } %>
-        
-        </div>
+        </table>
+      </div>
+      <br>       
         <% } %>
         <% if(isAuthenticated && currentUser.id !=register.author.id){ %>
           <form action="/registers/<%= register._id %>" method="post">

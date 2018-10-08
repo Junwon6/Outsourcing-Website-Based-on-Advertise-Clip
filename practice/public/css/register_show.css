@@ -37,9 +37,11 @@ body {
     width: 800px;
 }
 .table_header{
-    background-color: #398B93;
-    text-align: center;
+    background-color:#424242;
     color : white;
+    font-size : 24px;
+    font-weight: 900;
+    text-align: center;
     font-size : 25px;
     font-weight: 800;
 }
@@ -53,10 +55,7 @@ table td, th{
     padding : 10px;
 }
 
-td {
-    text-align : center;
-    vertical-align : middle;
-}
+
 td :last-child{
     font-size : 0.95em;
     line-height : 1.4;
@@ -64,13 +63,19 @@ td :last-child{
 }
 th{
     text-align : center;
-    background-color : #398B93;
-    font-weight : 500;
+    background-color :#A4A4A4;
+    font-weight : 800;
 }
 tr:nth-child(2n){
     background-color: white;
 }
 tr:nth-child(2n+1){
-    background-color: #398B93;
-    opacity : 0.55;
+    background-color:#F2F2F2;
+    
+}
+td {
+    text-align : center;
+    vertical-align : middle;
+    color:black;
+    opacity: 1;
 }
