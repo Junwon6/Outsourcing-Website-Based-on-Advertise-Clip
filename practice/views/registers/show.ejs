@@ -52,16 +52,32 @@
               }
             }
         } %>
-        <% for (var i = 0; i < participants.length; i++) { 
+        <div class="partin_all">
+
+          <% for (var i = 0; i < participants.length; i++) { 
             var temp = participants[i];
           %>
-          <div>참가자</div>
-          <div><%= temp.username %></div>
-          <div><%= temp.name %></div>
-          <div><%= temp.email %></div>
-          <div><%= temp.phone_num %></div>
+          <div class="table_users">
+          <div class="table_header">참가자</div>
+          <table cellspacing="0">
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Number</th>
+            </tr>
+            <tr>
+              <td><%= temp.username %></td>
+              <td><%= temp.name %></td>
+              <td><%= temp.email %></td>
+              <td><%= temp.phone_num %></td>
+            </tr>
+            </table>
+          </div>
           <br>       
-        <% } %>
+          <% } %>
+        
+        </div>
         <% if(isAuthenticated && currentUser.id !=register.author.id){ %>
           <form action="/registers/<%= register._id %>" method="post">
             <input style="display: none" type="text" name="user_id" value="<%= currentUser.id %>">

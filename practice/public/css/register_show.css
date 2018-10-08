@@ -26,3 +26,51 @@ body {
 .t1 {
     margin-left: 7px;
 }
+
+.table_users{
+    border: 1px solid darken(#398B93, 5%);
+    border-radius: 10px;
+    box-shadow: 3px 3px 0 rgba(0,0,0,0.1);
+    max-width: calc(100% - 2em);
+    margin: 1em auto;
+    overflow: hidden;
+    width: 800px;
+}
+.table_header{
+    background-color: #398B93;
+    text-align: center;
+    color : white;
+    font-size : 25px;
+    font-weight: 800;
+}
+table{
+    width : 100%;
+
+   
+}
+table td, th{
+    color : black;
+    padding : 10px;
+}
+
+td {
+    text-align : center;
+    vertical-align : middle;
+}
+td :last-child{
+    font-size : 0.95em;
+    line-height : 1.4;
+    text-align : left;
+}
+th{
+    text-align : center;
+    background-color : #398B93;
+    font-weight : 500;
+}
+tr:nth-child(2n){
+    background-color: white;
+}
+tr:nth-child(2n+1){
+    background-color: #398B93;
+    opacity : 0.55;
+}
