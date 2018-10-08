@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Register = require("../models/Register");
+const User = require("../models/User");
 const util = require("../util");
 
 // Index
@@ -51,8 +52,11 @@ router.get("/:id", (req, res) => {
         .populate("author")
         .exec((err, register) => {
             if (err) return res.json(err);
-            res.render("registers/show", {
-                register: register
+            User.find({}, (err, users) => {
+                res.render("registers/show", {
+                    register: register,
+                    users: users
+                })
             });
         });
 });
