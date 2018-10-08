@@ -1,88 +1,49 @@
-.body {
-    margin: 0;
-    padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background-color: #EFF3F7;
-    height: 100%;
-    width: 100%;
+
+.all_list {
+    width: 1024px;
+    display: table;
+    margin: 0 auto;
 }
 
-.grid-container {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-gap: 10px;
-    padding: 10px;
-}
-
-.grid-container>div {
-    margin: 0px auto;
-    text-align: center;
-    font-size: 15px;
-}
-
-.카테고리별_공모{
-    width: 100%;
-    height: 80%;
-    margin: 0px auto;
+.list {
+    display: inline-block;
+    margin: 0 auto;
 }
 
 .아이템_한개_전체 {
-    border-radius: 1em;
-    max-width: 300px;
-    min-width: 300px;
-    height: 180px;
+    padding: 10px 25px;
+    border-radius: 5px;
+    width: 318.7px;
+    height: 160px;
     margin: 10px;
-    position: static;
     background-color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    margin-bottom: 30px;
-    padding: 0 20px;
     box-shadow: 0 8px 38px rgba(133, 133, 133, 0.3), 0 5px 12px rgba(133, 133, 133, 0.22);
-    cursor: pointer;
-}
-
-.공모_이미지 {
-    width: 280px;
-    height: 200px;
-    padding: 0px;
-    margin: 0px;
-    position: absolute;
 }
 
 .아이템_제목, .아이템_회사명 {
-    width: 250px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    display: inline-block;
-    margin-top: 10px;
-    margin-left: 10px;
-    text-align: left;
 }
 .아이템_제목 {
-    margin-bottom: 10px;
+    text-align: center;
     font-size: 20px;
     font-weight: 600;
 }
 .아이템_회사명 {
-    height: 30px;
-    font-size: 17px;
+    font-size: 13px;
 }
-.아이템_인원, .아이템_마감일 {
-    float: left;
-    width: 170px;
-    height: 30px;
-    margin-top: 10px;
-    margin-left: 10px;
-    font-size: 17px;
-    text-align: left;
+.아이템_인원 {
+    display: table;
+    font-size: 13px;
+}
+.아이템_마감일 {
+    display: inline;
+    font-size: 13px;
 }
 .아이템_D-Day {
-    width: 80px;
-    height: 50px;
-    font-size: 1.75em;
+    display: inline;
+    float: right;
+    font-size: 20px;
     font-weight: bold;
 }

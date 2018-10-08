@@ -4,46 +4,46 @@
   <% include ../partials/head %>
  </head>
 
-<body class="body">
+<body style="background-color: #eff3f7;">
   <% include ../partials/nav %>
 
-  <div id="body_content_id">
-
-    <div>
-      <% if(isAuthenticated){ %>
-      <!--  new 버튼은 로그인된 경우에만 보임-->
-      <a href="/registers/new"><button id="btn_all">New</button></a>
-      <% } %>
-    </div>
+    <% if(isAuthenticated){ %>
+    <a href="/registers/new"><button id="btn_all">New</button></a>
+    <% } %>
 
     <div class="register_top">
-      <div class="register_top_1">
-      <div class="register_top_box">
-        <img src="/img/icon_write.png" alt="write"><br>
-        <span class="register_top_span_text">폼을 작성하세요!</span>
-      </div>
-      <span class="register_top_span">→</span>
-      <div class="register_top_box">
-          <img src="/img/icon_register.png" alt="register"><br>
+      <div class="sibal">
+        <div class="register_top_box">
+          <img src="/img/icon_write.png" alt="write"><br>
           <span class="register_top_span_text">공모를 등록하세요!</span>
-      </div>
-      <span class="register_top_span">→</span>
-      <div class="register_top_box">
-          <img src="/img/icon_find.png" alt="find"><br>
-          <span class="register_top_span_text">참여자를 고르세요!</span>
-      </div>
-      <span class="register_top_span">→</span>
-      <div class="register_top_box">
-          <img src="/img/icon_hand.png" alt="hand"><br>
-          <span class="register_top_span_text">함께 작품을 만들어요!</span>
-      </div>
+        </div>
+        <span class="register_top_span">→</span>
+        <div class="register_top_box">
+            <img src="/img/icon_register.png" alt="register"><br>
+            <span class="register_top_span_text">공모를 등록하세요!</span>
+        </div>
+        <span class="register_top_span">→</span>
+        <div class="register_top_box">
+            <img src="/img/icon_find.png" alt="find"><br>
+            <span class="register_top_span_text">참여자를 고르세요!</span>
+        </div>
+        <span class="register_top_span">→</span>
+        <div class="register_top_box">
+            <img src="/img/icon_hand.png" alt="hand"><br>
+            <span class="register_top_span_text">함께 작품을 만들어요!</span>
+        </div>
       </div>
     </div>
-      
-      <div class="grid-container">
+
+    <hr style="border: solid 1px white; margin: 20px 100px">
+
+    <div class="all_list">
+      <div class="sibal2">
         <% registers.forEach(function(register) { %>
+        <div class="list">
           <div class="아이템_한개_전체" onclick="location.href='/registers/<%= register._id %>'">
             <div class="아이템_제목"><%= register.title %></div>
+            <hr style="margin-top: 10px;">
             <div class="아이템_회사명">회사명 : <%= register.company %></div>
             <div class="아이템_인원">필요 인원 수 : <%= register.required_people %>명</div>
             <div class="아이템_마감일">마감일 : <%= register.deadline.toLocaleDateString() %></div>
@@ -53,9 +53,10 @@
               <div class="아이템_D-Day">D-<%= Math.floor((register.deadline - (new Date())) / (1000 * 60 * 60 * 24)) %></div>
             <% } %>
           </div>
+        </div>
         <% }) %>
       </div>
-  </div>
+    </div>
 </body>
 
 </html>

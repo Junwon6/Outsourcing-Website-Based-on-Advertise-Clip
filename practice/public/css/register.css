@@ -8,15 +8,14 @@
     margin-top : 10px;
 }
 .register_top{
-    width: 1000px;
-    height: 30%;
-    margin: 0px auto;
-    box-sizing: border-box;
+    width: 1024px;
+    margin: 0 auto;
+    margin-top: 70px;
 }
-.register_top_1{
-    position : relative;
+.sibal {
+    display: table;
+    margin: 0 auto;
 }
-
 #btn_all{
     flex-wrap: wrap;
     justify-content: center;
@@ -112,17 +111,12 @@
 .register_top img{
     width : 50px;
     height : 50px;
-    position: static;
 }
 .register_top_box{
-    font-size : 15px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    padding-top : 50px;
-    width:200px;
-    height:150px;
+    width: 200px;
     margin : 0px auto;
-    box-sizing : border-box;
     display : inline-block;
+    text-align: center;
 }
 .register_top_span{
     font-size : 24px;
