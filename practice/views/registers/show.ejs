@@ -42,6 +42,15 @@
         <script>
             content.innerHTML = content.innerHTML.replace(/&lt;br&gt;/gi, "<br>");
         </script>
+        <% var flag = 0 %>
+        <% if (isAuthenticated) { 
+              for (var i = 0; i < register.participants.length; i++) {
+              if (currentUser.id == register.participants[i]) {
+                flag = 1
+              }
+            }
+        } %>
+        
         <% var participants = [] %>
         <% for (var i = 0; i < register.participants.length; i++) { 
             var participant_id = register.participants[i];
@@ -81,13 +90,15 @@
       </div>
       <br>       
         <% } %>
-        <% if(isAuthenticated && currentUser.id !=register.author.id){ %>
+        <% if(isAuthenticated && currentUser.id !=register.author.id && flag == 0){ %>
           <form action="/registers/<%= register._id %>" method="post">
             <input style="display: none" type="text" name="user_id" value="<%= currentUser.id %>">
             <input style="display: none" type="text" name="register_id" value="<%= register._id %>">
             <input type="submit" id="btn_all_1" value="참여!">
           </form>
-        <%  } %>
+        <% } else if (isAuthenticated && currentUser.id !=register.author.id && flag == 1) { %>
+          <button>참여취소</button>            
+        <% } %>
 
       </div>
 
