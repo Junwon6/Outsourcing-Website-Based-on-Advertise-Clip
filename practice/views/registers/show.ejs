@@ -92,24 +92,25 @@
       </div>
       <br>       
         <% } %>
-        <% if(isAuthenticated && currentUser.id !=register.author.id && flag == 0){ %>
-          <form action="/registers/<%= register._id %>" method="post">
-            <input style="display: none" type="text" name="user_id" value="<%= currentUser.id %>">
-            <input style="display: none" type="text" name="register_id" value="<%= register._id %>">
-            <input type="submit" id="btn_all_1" value="참여!">
-          </form>
-        <% } else if (isAuthenticated && currentUser.id !=register.author.id && flag == 1) { %>
-          <script>
-          
-          </script>
-          <form action="/registers/<%= register._id %>/pop" method="post">
-            <input style="display: none" type="text" name="user_id" value="<%= currentUser.id %>">
-            <input style="display: none" type="text" name="register_id" value="<%= register._id %>">
-            <input style="display: none" type="text" name="people_index" value="<%= people_index %>">            
-            <input type="submit" id="btn_all_1" value="참여 취소!">
-          </form>
+        <% if ((register.deadline - (new Date())) > 0) { %>
+          <% if(isAuthenticated && currentUser.id !=register.author.id && flag == 0){ %>
+            <form action="/registers/<%= register._id %>" method="post">
+              <input style="display: none" type="text" name="user_id" value="<%= currentUser.id %>">
+              <input style="display: none" type="text" name="register_id" value="<%= register._id %>">
+              <input type="submit" id="btn_all_1" value="참여!">
+            </form>
+          <% } else if (isAuthenticated && currentUser.id !=register.author.id && flag == 1) { %>
+            <script>
+            
+            </script>
+            <form action="/registers/<%= register._id %>/pop" method="post">
+              <input style="display: none" type="text" name="user_id" value="<%= currentUser.id %>">
+              <input style="display: none" type="text" name="register_id" value="<%= register._id %>">
+              <input style="display: none" type="text" name="people_index" value="<%= people_index %>">            
+              <input type="submit" id="btn_all_1" value="참여 취소!">
+            </form>
+          <% } %>
         <% } %>
-
       </div>
 
   </body>
