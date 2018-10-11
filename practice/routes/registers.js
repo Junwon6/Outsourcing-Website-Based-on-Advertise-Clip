@@ -61,12 +61,25 @@ router.get("/:id", (req, res) => {
         });
 });
 
+// 참여하기
 router.post("/:id", (req, res) => {
     Register.findOneAndUpdate({
             _id: req.body.register_id
         }, { $push: { participants: req.body.user_id }}, {
             runValidators: true
         }, (err, register) => {
+            res.redirect("/registers/" + req.body.register_id);
+        });
+});
+
+// 참여취소
+router.post("/:id/pop", (req, res) => {
+    Register.findOneAndUpdate({
+            _id: req.body.register_id
+        }, { $pull: { participants: req.body.user_id }}, {
+            runValidators: true
+        }, (err, register) => {
+            console.log(register.participants);
             res.redirect("/registers/" + req.body.register_id);
         });
 });

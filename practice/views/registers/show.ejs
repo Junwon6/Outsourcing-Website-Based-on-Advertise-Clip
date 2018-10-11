@@ -42,11 +42,13 @@
         <script>
             content.innerHTML = content.innerHTML.replace(/&lt;br&gt;/gi, "<br>");
         </script>
-        <% var flag = 0 %>
+        <% var flag = 0; %>
+        <% var people_index = 0; %>
         <% if (isAuthenticated) { 
               for (var i = 0; i < register.participants.length; i++) {
               if (currentUser.id == register.participants[i]) {
-                flag = 1
+                flag = 1;
+                people_index = i;
               }
             }
         } %>
@@ -97,7 +99,15 @@
             <input type="submit" id="btn_all_1" value="참여!">
           </form>
         <% } else if (isAuthenticated && currentUser.id !=register.author.id && flag == 1) { %>
-          <button>참여취소</button>            
+          <script>
+          
+          </script>
+          <form action="/registers/<%= register._id %>/pop" method="post">
+            <input style="display: none" type="text" name="user_id" value="<%= currentUser.id %>">
+            <input style="display: none" type="text" name="register_id" value="<%= register._id %>">
+            <input style="display: none" type="text" name="people_index" value="<%= people_index %>">            
+            <input type="submit" id="btn_all_1" value="참여 취소!">
+          </form>
         <% } %>
 
       </div>
