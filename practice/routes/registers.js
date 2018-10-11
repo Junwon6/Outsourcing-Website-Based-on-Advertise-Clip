@@ -79,8 +79,19 @@ router.post("/:id/pop", (req, res) => {
         }, { $pull: { participants: req.body.user_id }}, {
             runValidators: true
         }, (err, register) => {
-            console.log(register.participants);
             res.redirect("/registers/" + req.body.register_id);
+        });
+});
+
+// 조기마감
+router.post("/:id/finish", util.isLoggedin, checkPermission, (req, res) => {
+    var temp = Date.now() - 1;
+    Register.findOneAndUpdate({
+            _id: req.params.id
+        }, { deadline: temp }, {
+            runValidators: true
+        }, (err, register) => {
+            res.redirect("/registers/" + req.params.id);
         });
 });
 
