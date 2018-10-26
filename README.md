@@ -1,2 +1,2 @@
 # BottomUp-project
-## Outsorucing Website Based on Advertise Clip
+## Outsourcing Website Based on Advertise Clip
